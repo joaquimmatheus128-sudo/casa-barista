@@ -1,0 +1,1462 @@
+/* 
+,,,,,,,,,,,,,,,,,,,,, 
+FONTES GOOGLE E LOCAL
+,,,,,,,,,,,,,,,,,,,,,
+*/
+
+
+
+/* google */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Local */
+@font-face{
+  font-family: "Geometry Soft Pro-Bold N";
+  src: url(../fonts/geometry-soft-pro-bold-n.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+
+
+}
+
+
+
+/* 
+==============================
+VARIÁVEIS DA CASA DO BARISTA
+==============================
+*/
+
+:root{
+
+  /* CORES */
+  --cor-fundo-1: #f3e8dc;
+  --cor-fundo-2: #2e2e2e;
+  --cor-primaria: #4b2e1e;
+  --cor-secundaria: #8b5e3c;
+  --cor-terciaria: #b56a34;
+  --cor-destaque: #5c6945;
+
+  --cor-texto: #2e2e2e;
+  --cor-titulo: #4b2e1e;
+  --cor-subtitulo: #8b5e3c;
+
+
+  /* FONTES */
+  --fonte-texto: "Bebas Neue", sans-serif;
+  --fonte-titulo: "Geometry Soft Pro-Bold N";
+
+}
+
+h2{
+  font-family: var(--fonte-titulo);
+  font-size: 50px;
+  font-weight: bold;
+  color: var(--cor-texto);
+}
+
+h3{
+  font-family: var(--fonte-texto);
+  font-size: 40px;
+  color: var(--cor-secundaria);
+  
+}
+
+p{
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  font-size: 25px;
+}
+
+.site {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.parallax-padrao{
+  height: 300px;
+
+  background-image: url(../assets/parallax.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+.parallax-padrao::before{ 
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+}
+
+.parallax-padrao *{
+  position: relative;
+  z-index: 1;
+
+}
+
+.parallax-padrao h2{
+  color: var(--cor-destaque);
+  font-size: 50px;
+  font-family: var(--fonte-titulo);
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--cor-fundo-1);
+  margin-bottom: 70px;
+}
+
+.parallax-padrao h3{
+  color: var(--cor-destaque);
+  font-size: 40px;
+  font-family: var(--fonte-titulo);
+  -webkit-text-stroke: 1px var(--cor-fundo-1);
+
+}
+
+/* Estilo Padrão de Botão */
+.btn{
+  text-decoration: none;
+  padding: 14px 27px;
+  border-radius: 10px;
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo-1);
+  display: inline-block;
+  transition: transform .3s ease, 
+              box-shadow .3s ease,
+              background-color .3s ease;
+
+}
+
+.btn:hover{
+  background: var(--cor-secundaria);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+
+}
+
+
+/* TOPO */
+
+.topo{
+  background-color: #0b0b0b;
+  
+}
+
+.topo div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.topo h1 {
+  width: 200px;
+  height: 100px;
+  background-image: url(../assets/logo-casa-do-barista.svg);
+  background-size: cover;
+  margin: 10px 0;
+  text-indent: -9999px;
+}
+
+/* MENU */
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu ul {
+  display: flex;
+}
+
+/* Main nav links only (exclude social icons list). */
+.menu > ul:not(.redeSocial) li a {
+  font-size: 25px;
+  color: var(--cor-fundo-1);
+  text-decoration: none;
+  margin: 0 20px;
+  font-family: var(--fonte-titulo);
+  font-weight: bold;
+}
+
+/* Hover color only for main nav links. */
+.menu > ul:not(.redeSocial) li a:hover {
+  color: var(--cor-terciaria);
+}
+
+.menu-ativo{
+  color: var(--cor-terciaria)!important;
+}
+
+/*MENU FIXO*/
+.menu-fixo{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(11, 11, 11, 0.9);
+  animation: menuFixoIn 0.4s ease both;
+}
+ 
+.menu-fixo.saindo {
+  animation: menuFixoOut 0.35s ease both;
+}
+
+/* built with CODEX //A */
+
+@keyframes menuFixoIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+@keyframes menuFixoOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+/* //A */
+
+/* REDE SOCIAL */
+.redeSocial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.redeSocial li{
+  /* Fixed width + height keep each background as a perfect circle. */
+  width: 40px;
+  height: 40px;
+  background-color: var(--cor-primaria);
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Animação para deixar mais suave */
+  transition: transform 0.25s ease, 
+              background-color 0.25s ease, 
+              box-shadow 0.25s;
+}
+
+.redeSocial li:hover{
+  background-color: var(--cor-primaria);
+  background-color: var(--cor-terciaria);
+  transform: translateY(-3px) scale(1.12);
+  /* Box shadow: X Y Desfoque Cor */
+  box-shadow: 0 5px 10px var(--cor-secundaria);
+}
+
+.redeSocial a{
+  /* Fill the whole circle and center icon without extra margins. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+
+}
+
+.redeSocial img{
+  width: 18px;
+  display: block;
+}
+
+/* LOGIN */
+
+.login img{
+  width: 40px;
+  transition: transform 0.25s cubic-bezier(.4,2.8,.6,1), filter 0.25s ease;
+
+}
+
+.login img:hover{
+  transform: translateY(-3px) scale(1.2);
+  filter: brightness(1.5);
+}
+
+/* BANNER */
+.banner img {
+  width: 100%;
+}
+
+.banner .slick-prev:before,
+.banner .slick-next:before {
+  font-size: 60px;
+  color: white;
+
+}
+
+.banner .slick-prev
+{
+    left: 40px;
+    z-index: 2;
+}
+
+
+
+.banner .slick-next
+{
+    right: 80px;
+}
+
+/* BEM - VINDO À CASA DO BARISTA */
+.bem-vindo {
+  padding: 50px 0;
+}
+
+.bem-vindo h2,
+.bem-vindo h3 {
+
+  text-align: center;
+}
+
+.bem-vindo header p {
+  font-size: 30px;
+  line-height: 40px;
+  text-align: justify;
+  width: 800px;
+  margin: 0 auto;
+}
+
+
+.bem-vindo div div {
+  display: flex;
+  text-align: center;
+  margin-top: 125px;
+  justify-content: space-around;
+}
+
+.bem-vindo article {
+  background-color: #f3e8dc;
+  width: 400px;
+  height: 350px;
+}
+
+
+.bem-vindo h4 {
+  color: var(--cor-primaria);
+  font-size: 40px;
+  font-family: var(--fonte-titulo);
+}
+
+.bem-vindo h5 {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-secundaria);
+  font-size: 20px;
+  margin: 25px 0;
+}
+
+.bem-vindo div img {
+  margin: 25px 0;
+  width: 20px;
+}
+
+.bem-vindo div p{
+  color: #2e2e2e;
+  font-size: 25px;
+  padding: 0 10px;
+}
+
+/*DESTAQUE*/
+
+.destaque .card {
+  display: flex;
+  text-align: center;
+  margin: 50px auto;
+  justify-content: space-around;
+}
+
+.destaque article {
+  background-color: var(--cor-fundo-1);
+  width: 420px;
+  height: 500px;
+}
+
+.destaque h4 {
+  color: var(--cor-primaria);
+  font-size: 30px;
+  font-family: var(--fonte-titulo);
+}
+
+.destaque h5{
+  color: var(--cor-secundaria);
+  font-size: 30px;
+  font-family: var(--fonte-titulo);
+
+}
+
+.destaque h5 {
+  font-size: 25px;
+  margin: 25px 0;
+}
+
+.destaque div img {
+  margin: 25px 0;
+}
+
+.destaque div p {
+  color: var(--cor-texto);
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+/*CARDÁPIO*/
+.cardapio .card-cardapio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card-flip {
+  width: 480px;
+  height: 240px;
+  perspective: 1000px;
+}
+
+.card-flip-miolo{
+  width: 100%;  /* 480 */
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .8s ease;
+  border-radius: 25px;
+}
+
+.card-flip:hover .card-flip-miolo{
+  transform: rotateY(180deg);
+}
+
+.flip1,
+.flip2 {
+  position:absolute;
+  inset: 0; /* ocupa a area inteira do card */
+  border-radius: 25px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  display:flex;
+  padding: 22px;
+
+}
+
+.flip1{
+  background-image: url(../assets/cardapio1.png);
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: flex-start; 
+
+}
+
+.flip1::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(11, 11, 11, .50);
+
+
+}
+
+.flip1 h4{
+  color: var(--cor-destaque);
+  font-size: 30px;
+  font-family:var(--fonte-titulo);
+  -webkit-text-stroke: 2px var(--cor-fundo-1);
+  position: relative;
+  z-index: 1;
+}
+
+
+.flip2 {
+  background-color: var(--cor-fundo-1);
+  transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start ;
+  gap: 10px;
+}
+
+.flip2 h4 {
+  color: var(--cor-primaria);
+  font-size: 30px;
+  font-family: var(--fonte-titulo);
+
+}
+
+.flip2 span{
+  margin-left: 50px;
+}
+
+.flip2 h5{
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  font-size: 25px;
+
+}
+
+/* 
+:nth-child(valor) = Qual filho
+last-child = último filho 
+*/
+.btn-cardapio {
+  display: flex;
+  justify-content: end;
+  padding: 20px;
+}
+
+
+/*EQUIPE*/
+.equipe .cardEquipe {
+  max-width: 1500px;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  margin: 50px auto;
+  justify-content: space-around;
+}
+
+.equipe .cardEquipe article {
+  background-color: var(--cor-fundo-1);
+  width: 330px;
+  height: 360px;
+}
+
+.cardEquipe img {
+  border-radius: 0 0 20px 20px;
+}
+
+.equipe .cardEquipe h4{
+  color: var(--cor-primaria);
+  font-size: 30px;
+  font-family: var(--fonte-titulo);
+
+}
+
+.equipe .cardEquipe h5 {
+  margin: 25px auto;
+  color: var(--cor-destaque);
+  font-size: 25px;
+  font-family: var(--fonte-texto);
+
+}
+  
+
+/*EVENTOS*/
+.eventos .cardEventos {
+  max-width: 1500px;
+  width: 100%;
+  display: flex;
+  margin: 50px auto;
+  justify-content: space-around;
+}
+
+/* O restante aqui puxava o ".eventos" a class pai do .cardEventos */
+/* Sempre puxe a classe pai, porque pode existir no futuro muitas tag do mesmo dentro da classe  */
+
+.eventos .cardEventos article {
+  background-color: var(--cor-fundo-1);
+  width: 330px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .4);
+  margin: 15px;
+}
+
+.eventos .cardEventos article > img {
+  border-radius: 0 0 0px 100px;
+}
+
+
+.eventos .cardEventos h4{
+  font-size: 25px;
+  font-family: var(--fonte-texto);
+  color: var(--cor-destaque);
+  margin: 20px;
+}
+
+.eventos .cardEventos h5 {
+  font-size: 30px;
+  margin: 0px 0px 15px 20px;
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria);
+  
+}
+
+.eventos .cardEventos nav h5{
+  font-size: 19px;
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+
+}
+
+.eventos .cardEventos nav ul li{
+  font-family: var(--fonte-texto);
+  font-size: 19px;
+  margin-left: 40px;
+  line-height: 22px;
+  color: var(--cor-texto);
+  list-style: circle;
+}
+
+/* 
+Student note:
+This box is the area where the line and the bean icon are built together.
+`position: relative` is the key part: it tells CSS that absolute elements inside
+must use this box as their reference point.
+So when we center the bean with absolute positioning, it stays centered here,
+not in another part of the page.
+We also keep `display: flex` and `align-items: center` so this row stays neatly
+aligned in the middle of its own height.
+*/
+/* 
+Nota para estudante:
+Esta caixa é a área onde a linha e o ícone de grão são montados juntos.
+`position: relative` é a parte principal: ele diz ao CSS que elementos absolutos
+internos devem usar ESTA caixa como ponto de referência.
+Assim, quando centralizamos o grão com posicionamento absoluto, ele fica centralizado aqui,
+e não em outra parte da página.
+Também usamos `display: flex` e `align-items: center` para manter esta linha
+bem alinhada no meio da própria altura.
+*/
+.eventos .linha-grao {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 20px;
+}
+
+/* 
+Student note:
+This `<hr>` is used as a custom line, not as the browser default separator.
+`width: 100%` makes the line stretch across the whole row.
+`border: none` removes default browser styles that can look different from one browser to another.
+Then we define our own visual style:
+`height` controls thickness, `background-color` controls color,
+and `opacity` makes the line slightly softer.
+*/
+/* 
+Nota para estudante:
+Este `<hr>` é usado como linha personalizada, não como separador padrão do navegador.
+`width: 100%` faz a linha ocupar toda a largura da faixa.
+`border: none` remove estilos padrão que podem variar entre navegadores.
+Depois definimos o visual manualmente:
+`height` controla a espessura, `background-color` controla a cor,
+e `opacity` deixa a linha um pouco mais suave.
+*/
+.eventos .linha-grao hr {
+  width: 100%;
+  margin: 0;
+  border: none;
+  height: 3px;
+  background-color: var(--cor-fundo-2);
+  opacity: .85;
+}
+
+/* 
+Student note:
+The bean icon is placed with `position: absolute` so it can sit over the line.
+`left: 50%` moves the icon's left side to the center of the container.
+`transform: translateX(-50%)` pulls it back by half of its own width.
+These two lines together create true horizontal centering.
+`padding: 0 8px` adds space on the left and right of the icon background.
+With `background-color` matching the card color, this space hides part of the line,
+so the line looks like it continues behind the bean.
+*/
+/* 
+Nota para estudante:
+O ícone do grão usa `position: absolute` para poder ficar por cima da linha.
+`left: 50%` coloca o lado esquerdo do ícone no centro do container.
+`transform: translateX(-50%)` puxa o ícone para trás metade da própria largura.
+Essas duas linhas juntas fazem o centralização horizontal real.
+`padding: 0 8px` cria espaço à esquerda e à direita do fundo do ícone.
+Com `background-color` igual ao fundo do card, esse espaço esconde um pedaço da linha,
+fazendo parecer que a linha continua por trás do grão.
+*/
+.eventos .linha-grao img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  padding: 0 8px;
+  background-color: var(--cor-fundo-1);
+  display: block;
+}
+
+.data {
+  display: block;
+  text-align: center;
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  color: var(--cor-titulo);
+  letter-spacing: 4px;
+  padding-bottom: 20px;
+}
+
+.eventos .slick-prev:before,
+.eventos .slick-next:before {
+  font-size: 60px;
+  color: var(--cor-primaria);
+}
+
+.eventos .slick-prev {
+  left: -60px;
+  z-index: 2;
+}
+
+.eventos .slick-next {
+  right: -25px;
+}
+
+/*GALERIA*/
+.itensGaleria{
+  display: flex;
+  padding: 50px 0;
+}
+
+.itensGaleria img{
+  margin: 0 10px;
+  border-radius: 25px;
+}
+
+
+
+/*DEPOIMENTO*/
+.itensDepo{
+  flex-direction: column;
+  align-items: center;
+}
+
+.itensDepo .estrela{
+  padding: 50px 0;
+}
+.itensDepo .estrela ul{
+  display: flex;
+  justify-content: center;  
+}
+
+.itensDepo .estrela ul li{
+  margin: 0 5px;
+}
+
+.dadosDepo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dadosDepo p{
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: var(--fonte-texto);
+  font-size: 25px;
+}
+
+.dadosDepo img{
+  border-radius: 60px;
+  width: 60px;
+}
+
+.dadosDepo h4{
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-family: var(--fonte-titulo);
+}
+
+.dadosDepo div{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.dadosDepo h5{
+  margin-bottom: 50px;
+  font-size: 25px;
+  font-family: var(--fonte-titulo);
+  font-weight: bold;
+
+}
+
+.itensDepo .slick-prev:before,
+.itensDepo .slick-next:before {
+  font-size: 60px;
+  color: black;
+
+}
+
+.itensDepo .slick-prev
+{
+    left: 80px;
+    z-index: 2;
+}
+
+
+
+.itensDepo .slick-next
+{
+    right: 80px;
+}
+
+/* ##################### */
+/*         RODAPÉ       */
+/* ################### */
+
+.rodape{
+  background-color: var(--cor-fundo-2);
+  margin-top: 80px;
+
+}
+
+.rodape .rodape-grid{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+
+}
+
+/*
+Student note:
+Imagine the footer as a balance: left and right must share space with the same weight.
+This rule applies `flex: 1 1 0` to `.coluna-end` and `.coluna-contato`.
+`flex-grow: 1` and `flex-shrink: 1` make both sides expand and contract together.
+`flex-basis: 0` gives both sides the same starting width.
+Without this, one side can dominate and the center block feels visually off-center.
+*/
+/*
+Nota para estudante:
+Imagine o rodape como uma balanca: esquerda e direita precisam dividir o espaco com o mesmo peso.
+Esta regra aplica `flex: 1 1 0` em `.coluna-end` e `.coluna-contato`.
+`flex-grow: 1` e `flex-shrink: 1` fazem os dois lados crescerem e encolherem juntos.
+`flex-basis: 0` da o mesmo ponto de partida de largura para os dois lados.
+Sem isso, um lado pode dominar e o bloco central fica com cara de fora do centro.
+*/
+.rodape .coluna-end,
+.rodape .coluna-contato {
+  flex: 1 1 0;
+}
+
+/*
+Student note:
+After balancing the sides, we protect the center card shape.
+In `.coluna-reserva`, `flex: 0 0 auto` means:
+first `0` = do not grow, second `0` = do not shrink, `auto` = keep content width.
+This keeps the middle block stable while side columns adapt.
+Without this, the center can stretch/compress and the footer loses visual harmony.
+*/
+/*
+Nota para estudante:
+Depois de equilibrar os lados, protegemos o formato do card central.
+Em `.coluna-reserva`, `flex: 0 0 auto` significa:
+primeiro `0` = nao crescer, segundo `0` = nao encolher, `auto` = manter largura do conteudo.
+Assim o bloco do meio fica estavel enquanto as laterais se adaptam.
+Sem isso, o centro estica/comprime e o rodape perde harmonia visual.
+*/
+.rodape .coluna-reserva {
+  flex: 0 0 auto;
+}
+
+.rodape h3{
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  color: var(--cor-fundo-1);
+  margin-bottom: 15px;
+}
+
+.rodape .coluna-end address,
+.rodape .link-contato{
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--cor-fundo-1);
+  display: block;
+  text-decoration: none;
+
+}
+
+.rodape .link-contato:hover{
+  color: var(--cor-terciaria);
+
+}
+
+.rodape .coluna-end a{
+  font-family: var(--fonte-titulo);
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--cor-terciaria);
+  margin-top: 25px;
+  display: block;
+
+}
+
+.rodape .coluna-end a:hover {
+  color: var(--cor-fundo-1);
+}
+
+/* CARD CENTRAL - class=coluna-reserva */
+
+.box-reserva{
+  background-color: var(--cor-primaria);
+  border-radius: 50px 50px 30px 30px;
+  padding: 50px;
+  text-align: center;
+  position: relative;
+  top: -50px;
+  width: 450px;
+}
+
+.linha-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+
+}
+
+.linha-box hr{
+  width: 150px;
+  height: 2px;
+  border: none;
+  background-color: var(--cor-fundo-1); 
+
+}
+
+.linha-box img{
+  width: 30px;
+  height: 30px;
+
+}
+
+.box-reserva ul{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box-reserva ul li{
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-fundo-1);
+
+}
+
+.box-reserva a{
+background-color: var(--cor-terciaria);
+
+}
+
+
+/* NEWSLETTER */
+
+.box-email{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-email p{
+  color: var(--cor-fundo-1);
+  font-size: 16px;
+  margin-top: -34px;
+  margin-bottom: 15px;
+}
+
+.box-email form{
+  width: 420px;
+  display: flex;
+  align-items: center;
+  background-color: var(--cor-fundo-1);
+  border-radius: 5px;
+
+}
+
+.box-email form label{
+  padding: 12px;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-primaria);
+
+}
+
+.box-email form input{
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-texto);
+
+}
+
+.box-email form button{
+  width: 44px;
+  height: 100%;
+  border: none;
+  background-color: var(--cor-fundo-1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.box-email form button:hover{
+  background-color: var(--cor-terciaria);
+}
+
+.box-email form button img{
+  width: 20px;
+  height: 20px;
+  display: block;
+
+}
+
+.barra-final{
+  background-color: var(--cor-primaria);
+  padding: 14px 0px;
+  text-align: center;
+
+}
+
+.barra-final p{
+  font-family: var(--fonte-texto);
+  color: var(--cor-fundo-1);
+  font-size: 20px;
+
+}
+
+
+/* *******************
+    Contact page
+**********************/
+
+#pg-contato .rodape,
+body.pg-contato .rodape {
+  margin-top: -10px;
+}
+
+#pg-contato,
+body.pg-contato {
+  background-color: #fff;
+}
+
+#pg-contato #contato.contato,
+body.pg-contato #contato.contato {
+  /*
+  Student note:
+  This block controls the main contact-page container.
+  We disable the forced `width: 100%` and use `width: auto` with `max-width: 1500px`.
+  `max-width` still limits the layout size, while `width: auto` avoids hard full-width behavior that can create awkward expansion at 1200px and similar sizes.
+  Without this change, the container may stretch more than desired even when the visual design works better with natural width.
+  */
+  /*
+  Nota para estudante:
+  Este bloco controla o container principal da pagina de contato.
+  Desativamos o `width: 100%` forçado e usamos `width: auto` com `max-width: 1500px`.
+  `max-width` ainda limita o tamanho do layout, enquanto `width: auto` evita comportamento de largura total fixa que pode gerar expansao estranha em 1200px e tamanhos parecidos.
+  Sem essa mudanca, o container pode esticar mais do que o desejado mesmo quando o visual fica melhor com largura natural.
+  */
+  max-width: 1500px;
+  width: auto;
+  margin: 0 auto;
+  padding: 70px 20px 60px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "title title"
+    "left right";
+  column-gap: 90px;
+  row-gap: 34px;
+  align-items: start;
+}
+
+#pg-contato #contato .contato-titulo-pagina,
+body.pg-contato #contato .contato-titulo-pagina {
+  grid-area: title;
+  margin: 0 0 16px;
+  text-align: center;
+  color: var(--cor-primaria);
+  font-size: 56px;
+}
+
+#pg-contato #contato .contato-grid,
+body.pg-contato #contato .contato-grid {
+  grid-area: left;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+#pg-contato #contato .contato-grid > div:first-child p,
+body.pg-contato #contato .contato-grid > div:first-child p {
+  margin: 0 0 12px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+#pg-contato #contato .contato-cards,
+body.pg-contato #contato .contato-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+#pg-contato #contato .contato-card,
+body.pg-contato #contato .contato-card {
+  background-color: #f1f1f1;
+  padding: 22px 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-height: 160px;
+
+  border: 1px solid rgba(46, 46, 46, 0.14);
+}
+
+#pg-contato #contato .contato-card h3,
+body.pg-contato #contato .contato-card h3 {
+  margin: 0;
+  font-size: 32px;
+  color: var(--cor-primaria);
+}
+
+#pg-contato #contato .contato-card h4,
+body.pg-contato #contato .contato-card h4 {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-texto);
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+#pg-contato #contato .contato-card a,
+body.pg-contato #contato .contato-card a {
+  display: inline-block;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-texto);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#pg-contato #contato .contato-card a:hover,
+body.pg-contato #contato .contato-card a:hover {
+  color: var(--cor-terciaria);
+}
+
+#pg-contato #contato .contato-card ul,
+body.pg-contato #contato .contato-card ul {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/*
+Student note:
+This is where each social item starts to feel like a real button.
+Inside `ul.contato-redeSocial`, every `li` gets size with `width` and `height`.
+`border-radius: 50%` turns the square area into a circle.
+`background-color` gives the resting visual state before hover.
+Without this, icons look loose and the button shape disappears.
+*/
+/*
+Nota para estudante:
+Aqui cada item social comeca a parecer um botao de verdade.
+Dentro de `ul.contato-redeSocial`, cada `li` recebe tamanho com `width` e `height`.
+`border-radius: 50%` transforma a area quadrada em circulo.
+`background-color` define o estado visual de repouso antes do hover.
+Sem isso, os icones ficam soltos e o formato de botao desaparece.
+*/
+#pg-contato #contato .contato-card ul.contato-redeSocial li,
+body.pg-contato #contato .contato-card ul.contato-redeSocial li,
+#pg-contato .contato .contato-redeSocial li,
+body.pg-contato .contato .contato-redeSocial li {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+}
+
+/*
+Student note:
+This is the `li:hover` state for contact social buttons.
+`background-color` changes the circle color when the pointer is over it.
+`transform` lifts and scales the circle for the same interactive feel as the top menu.
+`box-shadow` adds depth so the movement is visible.
+This selector is intentionally more specific than the base `li` rule.
+Without that specificity, CSS keeps the base color and hover seems not to work.
+*/
+/*
+Nota para estudante:
+Este e o estado `li:hover` dos botoes sociais do contato.
+`background-color` troca a cor do circulo quando o ponteiro passa por cima.
+`transform` levanta e aumenta levemente o circulo para manter a mesma sensacao interativa do topo.
+`box-shadow` adiciona profundidade para o movimento ficar visivel.
+Este seletor foi feito mais especifico que a regra base do `li`.
+Sem essa especificidade, o CSS mantém a cor base e o hover parece nao funcionar.
+*/
+#pg-contato #contato .contato-card ul.contato-redeSocial li:hover,
+body.pg-contato #contato .contato-card ul.contato-redeSocial li:hover,
+#pg-contato .contato .contato-redeSocial li:hover,
+body.pg-contato .contato .contato-redeSocial li:hover {
+  background-color: var(--cor-terciaria);
+  transform: translateY(-3px) scale(1.12);
+  box-shadow: 0 5px 10px var(--cor-secundaria);
+}
+
+/*
+Student note:
+Inside each social `li`, the `<a>` tag is the clickable layer.
+`display: inline-flex` enables flex centering.
+`width: 100%` and `height: 100%` make the link occupy the whole circle.
+`align-items` and `justify-content` keep the `<img>` centered.
+Without this, only a tiny icon area is clickable and interaction feels fragile.
+*/
+/*
+Nota para estudante:
+Dentro de cada `li` social, a tag `<a>` e a camada clicavel.
+`display: inline-flex` habilita centralizacao com flex.
+`width: 100%` e `height: 100%` fazem o link ocupar o circulo inteiro.
+`align-items` e `justify-content` mantem o `<img>` no centro.
+Sem isso, so uma area pequena no icone fica clicavel e a interacao fica fraca.
+*/
+#pg-contato #contato .contato-card ul.contato-redeSocial a,
+body.pg-contato #contato .contato-card ul.contato-redeSocial a,
+#pg-contato .contato .contato-redeSocial a,
+body.pg-contato .contato .contato-redeSocial a {
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+Student note:
+This final step adjusts the icon `<img>` itself.
+`width` and `height` tune icon size independently from circle size.
+`display: block` removes inline baseline spacing that can shift the icon a little.
+Without this, the icon can look tiny or slightly off-center.
+*/
+/*
+Nota para estudante:
+Este passo final ajusta a propria tag `<img>` do icone.
+`width` e `height` regulam o tamanho do icone sem mexer no tamanho do circulo.
+`display: block` remove o espaco de baseline inline que pode deslocar levemente o icone.
+Sem isso, o icone pode parecer pequeno ou fora do centro.
+*/
+#pg-contato #contato .contato-card ul.contato-redeSocial img,
+body.pg-contato #contato .contato-card ul.contato-redeSocial img,
+#pg-contato .contato .contato-redeSocial img,
+body.pg-contato .contato .contato-redeSocial img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+#pg-contato #contato .contato-col-fone,
+body.pg-contato #contato .contato-col-fone {
+  grid-area: right;
+  padding: 0;
+}
+
+#pg-contato #contato .contato-form-titulo,
+body.pg-contato #contato .contato-form-titulo {
+  margin: 0 0 18px;
+  color: var(--cor-primaria);
+  font-size: 42px;
+}
+
+#pg-contato #contato .form-contato,
+body.pg-contato #contato .form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#pg-contato #contato .form-linha,
+body.pg-contato #contato .form-linha {
+  display: flex;
+  gap: 18px;
+}
+
+#pg-contato #contato .form-linha > *,
+body.pg-contato #contato .form-linha > * {
+  flex: 1;
+}
+
+#pg-contato #contato .form-linha input,
+#pg-contato #contato .form-linha select,
+#pg-contato #contato .form-linha textarea,
+body.pg-contato #contato .form-linha input,
+body.pg-contato #contato .form-linha select,
+body.pg-contato #contato .form-linha textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--cor-texto);
+  background-color: var(--cor-fundo-1);
+
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  color: var(--cor-texto);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  outline: none;
+}
+
+#pg-contato #contato .form-linha textarea,
+body.pg-contato #contato .form-linha textarea {
+  min-height: 260px;
+  resize: vertical;
+}
+
+#pg-contato #contato .form-linha input:focus,
+#pg-contato #contato .form-linha select:focus,
+#pg-contato #contato .form-linha textarea:focus,
+body.pg-contato #contato .form-linha input:focus,
+body.pg-contato #contato .form-linha select:focus,
+body.pg-contato #contato .form-linha textarea:focus {
+  border-color: var(--cor-terciaria);
+  box-shadow: 0 0 0 3px rgba(181, 106, 52, 0.18);
+}
+
+#pg-contato #contato .form-linha button,
+body.pg-contato #contato .form-linha button {
+  flex: 0 0 auto;
+  min-width: 240px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--cor-terciaria);
+  color: #fff;
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/*
+Student note:
+This rule styles `.form-linha-acoes`, the wrapper `div` that contains both `<button>` tags.
+Because `.form-linha` already uses `display: flex`, this line controls horizontal distribution.
+`justify-content: space-between` pushes the first button to the start and the second to the end.
+Without this, both buttons stay close together and the action area looks cramped.
+*/
+/*
+Nota para estudante:
+Esta regra estiliza `.form-linha-acoes`, a `div` que agrupa as duas tags `<button>`.
+Como `.form-linha` ja usa `display: flex`, esta linha controla a distribuicao horizontal.
+`justify-content: space-between` joga o primeiro botao para o inicio e o segundo para o fim.
+Sem isso, os dois botoes ficam muito proximos e a area de acao parece apertada.
+*/
+#pg-contato #contato .form-linha-acoes,
+body.pg-contato #contato .form-linha-acoes {
+  justify-content: space-between;
+}
+
+#pg-contato #contato .form-linha button:hover,
+body.pg-contato #contato .form-linha button:hover {
+  background-color: var(--cor-secundaria);
+}
+
+#pg-contato .map,
+body.pg-contato .map {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+#pg-contato .map iframe,
+body.pg-contato .map iframe {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  #pg-contato #contato.contato,
+  body.pg-contato #contato.contato {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "left"
+      "right";
+    column-gap: 0;
+    row-gap: 34px;
+    padding: 55px 20px 50px;
+  }
+
+  #pg-contato #contato .contato-col-fone,
+  body.pg-contato #contato .contato-col-fone {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 650px) {
+  #pg-contato #contato .contato-cards,
+  body.pg-contato #contato .contato-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #pg-contato #contato .form-linha,
+  body.pg-contato #contato .form-linha {
+    flex-direction: column;
+  }
+
+  #pg-contato #contato .form-linha button,
+  body.pg-contato #contato .form-linha button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+

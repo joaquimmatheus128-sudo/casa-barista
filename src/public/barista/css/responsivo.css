@@ -1,0 +1,1243 @@
+@media (max-width: 1920px) and (min-width: 1201px) {
+    .eventos .slick-next {
+        right: 40px; /* same position you want to keep */
+    }
+}
+
+/*######################## */
+/*   Até 1200px (notebook) */
+/* ####################### */
+
+@media (max-width: 1200px) {
+
+
+    /* BOX BEM VINDO */
+    .bem-vindo article{
+        width: 350px;
+    }
+
+    /* BTN-CARDAPIO */
+    .btn-cardapio {
+        padding: 0;
+
+    }
+
+    /*
+    Student note:
+    This block controls the card grid alignment in the Cardapio section.
+    The parent `.cardapio .card-cardapio` is a flex container with wrapping.
+    On 1200px screens, `justify-content: center` centers each row of cards so the layout does not stay glued to the left.
+    Without this, when a row has fewer cards, the empty space appears only on the right and the section looks unbalanced.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o alinhamento da grade de cards na secao Cardapio.
+    O pai `.cardapio .card-cardapio` e um container flex com quebra de linha.
+    Em telas de 1200px, `justify-content: center` centraliza cada linha de cards para o layout nao ficar colado na esquerda.
+    Sem isso, quando uma linha tem menos cards, o espaco vazio aparece so na direita e a secao fica desequilibrada.
+    */
+    .cardapio .card-cardapio {
+        justify-content: center;
+    }
+
+    /*
+    Student note:
+    This block controls Eventos slider arrows at 1200px.
+    In base desktop styles, arrows use negative `left`/`right`, which can push them outside the viewport.
+    Here we place `.slick-prev` and `.slick-next` inside the visible card area using positive offsets and center them vertically with:
+    `top: 50%` + `transform: translateY(-50%)`.
+    `z-index: 3` ensures arrows stay above the cards.
+    Without this, arrows can disappear off-screen and become hard/impossible to click.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla as setas do slider de Eventos em 1200px.
+    No estilo base desktop, as setas usam `left`/`right` negativos, o que pode jogar elas para fora da tela.
+    Aqui colocamos `.slick-prev` e `.slick-next` dentro da area visivel dos cards com offsets positivos e centralizacao vertical usando:
+    `top: 50%` + `transform: translateY(-50%)`.
+    `z-index: 3` garante que as setas fiquem acima dos cards.
+    Sem isso, as setas podem sumir para fora da tela e ficar dificil/impossivel de clicar.
+    */
+    .eventos .slick-prev,
+    .eventos .slick-next {
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+    }
+
+    /*
+    Student note:
+    This explicit rule guarantees the left arrow appears.
+    `left: 12px` moves `.slick-prev` into the visible viewport area.
+    Keeping a concrete positive value avoids clipping by slider wrappers.
+    */
+    /*
+    Nota para estudante:
+    Esta regra explicita garante a aparicao da seta esquerda.
+    `left: 12px` move `.slick-prev` para dentro da area visivel da tela.
+    Manter um valor positivo concreto evita corte pelos wrappers do slider.
+    */
+    .eventos .slick-prev {
+        left: 12px;
+    }
+
+    .eventos .slick-next {
+        right: 40px;
+    }
+    
+} /* FIM DO MEDIA 1200PX - NOTEBOOK */
+
+
+/* ######################### */
+/*      ATÉ 768PX - TABLET */
+/* ######################### */
+
+/*
+Student note:
+Desktop should hide mobile menu buttons, while tablet/mobile should keep them visible.
+`@media (min-width: 769px)` is a clear desktop rule:
+from 769px up, hide `.abrir-menu` and `.fechar-menu`.
+This avoids confusing behavior from `not all and (...)` and keeps breakpoint logic predictable.
+*/
+/*
+Nota para estudante:
+No desktop devemos esconder os botoes do menu mobile, e no tablet/mobile devemos manter visivel.
+`@media (min-width: 769px)` e uma regra clara de desktop:
+de 769px para cima, esconder `.abrir-menu` e `.fechar-menu`.
+Isso evita comportamento confuso do `not all and (...)` e deixa a logica de breakpoint previsivel.
+*/
+@media (min-width: 769px) {
+
+    .abrir-menu,
+    .fechar-menu{
+        display: none;
+    }
+
+} /*  Fim not all and 768px  */
+
+@media (max-width: 768px) {
+
+    /* MENU */
+    .topo h1{
+        margin: 10px;
+    }
+
+    /*
+    Student note:
+    This block controls the tablet off-canvas menu panel.
+    The panel starts outside the viewport (`right: -260px`) and moves to `right: 0` when `.menu-mobile` is active.
+    This gives a clear slide-in/slide-out behavior on 768px screens.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o painel lateral do menu no tablet.
+    O painel comeca fora da tela (`right: -260px`) e vai para `right: 0` quando `.menu-mobile` esta ativo.
+    Isso cria um comportamento claro de entrada/saida por slide em telas de 768px.
+    */
+    .menu {
+        /* Check out this in the chat for breakdown */
+        background-color: #b56a34;
+        height: 100%;
+        position: fixed;
+        max-width: 230px;
+        width: 45%;
+        z-index: 10;
+        top: 0;
+        right: -260px;
+        transition: right .28s ease-in-out;
+        box-shadow: -3px 0 5px rgba(69, 40, 20, 0.5);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .menu-ativo{
+        color: var(--cor-texto)!important;
+    }
+
+    .menu-mobile .menu{
+        right: 0;
+        display: flex;
+
+    }
+
+    /*
+    Student note:
+    This state rule controls what happens after clicking the open button.
+    The class `.menu-mobile` is added on `<html>` by JavaScript when the user opens the menu.
+    Hiding `.abrir-menu` in this state prevents the open icon from staying visible over the opened panel.
+    We also force `.fechar-menu` to stay visible so the user always has a clear close action.
+    Without this, both buttons can appear together and create visual confusion.
+    */
+    /*
+    Nota para estudante:
+    Esta regra de estado controla o que acontece depois do clique no botao de abrir.
+    A classe `.menu-mobile` e adicionada no `<html>` pelo JavaScript quando o usuario abre o menu.
+    Esconder `.abrir-menu` nesse estado evita que o icone de abrir continue visivel sobre o painel aberto.
+    Tambem forçamos `.fechar-menu` visivel para o usuario sempre ter uma acao clara de fechar.
+    Sem isso, os dois botoes podem aparecer juntos e gerar confusao visual.
+    */
+    /*
+    Student note:
+    This block makes the open button fade out while the tablet menu slides in.
+    We do not use `display: none` because `display` cannot animate.
+    Instead, we animate `opacity` and switch `visibility` to hidden at the end.
+    The duration matches the panel slide time (`.28s`) so both movements feel synchronized.
+    */
+    /*
+    Nota para estudante:
+    Este bloco faz o botao de abrir sumir com fade enquanto o menu do tablet desliza.
+    Nao usamos `display: none` porque `display` nao anima.
+    Em vez disso, animamos `opacity` e mudamos `visibility` para hidden no final.
+    A duracao segue o mesmo tempo do slide do painel (`.28s`) para os dois movimentos ficarem sincronizados.
+    */
+    .menu-mobile .abrir-menu{
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .28s ease, visibility 0s linear .28s;
+    }
+
+    .menu-mobile .fechar-menu{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity .28s ease, visibility 0s linear 0s;
+    }
+
+
+    .menu ul{  
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .menu ul li a:hover {
+        color: var(--cor-fundo-1);
+
+    }
+
+    /*
+    Student note:
+    This button style intentionally matches the 380px visual style:
+    image as full button background (`background-size: cover`) and size defined by `padding`.
+    We keep transition speed from tablet (`.28s`) but keep the same visual language across breakpoints.
+    */
+    /*
+    Nota para estudante:
+    Este estilo de botoes foi feito para combinar com o visual de 380px:
+    imagem como fundo completo do botao (`background-size: cover`) e tamanho definido por `padding`.
+    Mantemos a velocidade de transicao do tablet (`.28s`), mas com a mesma linguagem visual entre breakpoints.
+    */
+
+    .abrir-menu{
+        background-image: url(../assets/menu.png);
+        background-size: cover;
+        padding: 18px;
+        border: 0;
+        display: block;
+        margin-right: 20px;
+        cursor: pointer;
+        position: relative;
+        z-index: 20;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity .28s ease, visibility 0s linear 0s;
+    }
+
+    .fechar-menu{
+        background-image: url(../assets/fechar.png);
+        background-size: cover;
+        padding: 18px;
+        border: 0;
+        display: block;
+        margin-right: 10px;
+        align-self: start;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .28s ease, visibility 0s linear .28s;
+    }   
+
+
+    .menu .redeSocial {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .menu .redeSocial li a{
+        margin: 0;
+    }
+
+    .banner {display: none;}
+
+    /* FINAL DO MENU */
+
+    /* BEM VINDO */
+    .bem-vindo header p {width: auto;}
+
+    .bem-vindo div div{
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+
+    }
+
+    /* FINAL DO BEM VINDO */
+
+    /* COMEÇO DO DESTAQUE */
+    .destaque .card {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .destaque article{
+        width: 85%;
+        height: auto;
+
+    }
+
+    .card-flip{
+        width: 95%;
+    }
+
+    .btn-cardapio {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        justify-content: center;
+    
+    }
+    /* FINAL DO DESTAQUE */
+
+    /* COMEÇO DO EQUIPE */
+
+    .cardEquipe{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .cardEquipe article {
+       width: 85%;
+       height: auto;
+    }
+
+    /* FINAL DE EQUIPE */
+    
+    /* COMEÇO DE EVENTOS */
+    /*
+    Student note:
+    This block controls the slider arrows inside the Eventos section on small phones.
+    The selectors `.eventos .slick-prev` and `.eventos .slick-next` target the two `<button>` arrows generated by Slick.
+    On desktop, your base CSS uses negative `left`/`right`, which can push arrows outside the viewport and create horizontal scroll.
+    Here we keep `top` for vertical placement, but set `left` and `right` to positive values so both arrows stay inside the visible area.
+    Without this, the page can show that annoying horizontal line/scroll even when cards look correct.
+    For the user, this keeps touch navigation visible and removes accidental side-scroll on mobile.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla as setas do slider da seção Eventos em celulares pequenos.
+    Os seletores `.eventos .slick-prev` e `.eventos .slick-next` pegam os dois botões `<button>` criados pelo Slick.
+    No desktop, seu CSS base usa `left`/`right` negativos, e isso pode jogar as setas para fora da tela e criar rolagem horizontal.
+    Aqui mantemos o `top` para posição vertical, mas colocamos `left` e `right` positivos para manter as setas dentro da área visível.
+    Sem isso, a página pode mostrar aquela linha/rolagem horizontal chata mesmo com os cards aparentemente certos.
+    Para o usuário, isso mantém a navegação por toque visível e remove a rolagem lateral acidental no mobile.
+    */
+    .eventos .slick-prev,
+    .eventos .slick-next {
+        top: 600px;
+    }
+
+    .eventos .slick-prev {
+        left: 8px;
+    }
+
+    .eventos .slick-next {
+        right: 8px;
+    }
+
+    /* FINAL DE EVENTOS */
+
+    /* COMEÇO DE DEPO */
+
+    .depo .parallax-padrao h3{
+        font-size: 20px;
+        -webkit-text-stroke: .5px var(--cor-fundo-1);
+
+    }
+
+    .dadosDepo p{
+        width: 65%;
+        font-size: 20px;
+    }
+
+    .depo .itensDepo .slick-prev:before, 
+    .itensDepo .slick-next:before{
+        font-size: 40px ;
+    }
+
+    .depo .slick-next, 
+    .itensDepo .slick-next{
+        right: 60px;
+    }
+
+    .dadosDepo div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dadosDepo h5 {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    
+    /* FINAL DE DEPO */
+
+
+    /* COMEÇO DO RODAPE */
+    .coluna-end{
+        margin-top: 50px;
+    }
+
+    .rodape .rodape-grid {
+        flex-direction: column;
+    }
+
+    .coluna-reserva{
+        width: 98%;
+    }
+
+    /*
+    Student note:
+    This block controls the central reservation card (`.box-reserva`) in the footer.
+    We keep your mobile spacing (`top`, `width`, `padding`), but add `box-sizing: border-box`.
+    `box-sizing: border-box` changes width calculation so `padding` is included inside the declared `width`.
+    That matters here because `width: 90%` plus horizontal padding in default content-box mode can exceed the parent width and leak outside.
+    Without this, the gray footer area may look slightly "pushed out" and trigger a horizontal line.
+    For the user, the card stays aligned inside the footer and the mobile layout feels stable.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o card central de reserva (`.box-reserva`) no rodapé.
+    Mantemos seu espaçamento mobile (`top`, `width`, `padding`), mas adicionamos `box-sizing: border-box`.
+    `box-sizing: border-box` muda o cálculo da largura para incluir o `padding` dentro da largura declarada.
+    Isso importa aqui porque `width: 90%` com padding horizontal no modo padrão content-box pode passar da largura do pai e escapar para fora.
+    Sem isso, a área cinza do rodapé pode parecer um pouco "empurrada para fora" e gerar linha horizontal.
+    Para o usuário, o card fica alinhado dentro do rodapé e o layout mobile passa sensação de estabilidade.
+    */
+    .box-reserva{
+        top: 10px;
+        width: 90%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* COMEÇO DO RODAPE */
+    .coluna-end{
+        margin-top: 50px;
+    }
+
+    .rodape .rodape-grid {
+        flex-direction: column;
+    }
+
+    .coluna-reserva{
+        width: 98%;
+    }
+
+    .box-reserva{
+        top: 10px;
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* NEWSLETTER */
+
+    .box-email p{
+    margin-top: 50px;
+    margin-bottom: 15px;
+    }
+
+    .box-email form{
+        width: 90%;
+    }
+
+
+    .box-email form label{
+       padding: 8px;
+       font-size: 15px;
+
+    }
+
+    .box-email form button{
+        width: 44px;
+    }
+
+    .box-email form button img{
+        width: 20px;
+        height: 20px;
+        display: block;
+
+    }
+
+    .coluna-contato{
+        margin-bottom: 30px;
+    }
+
+    /*
+    Student note:
+    This block is a final 768px alignment layer for the footer wrapper `.rodape .rodape-grid`.
+    At tablet size, the parent is still `display: flex` with `flex-direction: column`.
+    We force `align-items: stretch` so each child column uses full row width instead of narrow centered width.
+    We also tune side `padding` and `gap` for cleaner spacing.
+    Without this, the footer can look visually shifted or "floating" to one side.
+    */
+    /*
+    Nota para estudante:
+    Este bloco e uma camada final de alinhamento em 768px para o wrapper do rodape `.rodape .rodape-grid`.
+    No tablet, o pai ainda e `display: flex` com `flex-direction: column`.
+    Forcamos `align-items: stretch` para cada coluna filha usar toda a largura da linha, em vez de ficar estreita e centralizada.
+    Tambem ajustamos `padding` lateral e `gap` para um espaco mais limpo.
+    Sem isso, o rodape pode parecer deslocado ou "flutuando" para um lado.
+    */
+    .rodape .rodape-grid {
+        align-items: stretch;
+        padding: 0 10px;
+        gap: 30px;
+    }
+
+    /*
+    Student note:
+    This block controls `.coluna-reserva` and `.box-reserva` at 768px.
+    `width: 100%` makes the reservation area fill the parent from left to right.
+    `max-width: none` removes fixed-width limitation, and `box-sizing: border-box` keeps `padding` inside width.
+    `top: 0` removes vertical lift that can feel detached in stacked mobile/tablet flow.
+    Without these lines, the middle card can look narrower than the other footer blocks.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla `.coluna-reserva` e `.box-reserva` em 768px.
+    `width: 100%` faz a area de reserva preencher o pai da esquerda para a direita.
+    `max-width: none` remove a limitacao de largura fixa, e `box-sizing: border-box` mantem o `padding` dentro da largura.
+    `top: 0` remove a elevacao vertical que pode parecer solta no fluxo empilhado de tablet/mobile.
+    Sem essas linhas, o card central pode parecer mais estreito que os outros blocos do rodape.
+    */
+    .coluna-reserva {
+        width: 100%;
+    }
+
+    .box-reserva {
+        width: 100%;
+        max-width: none;
+        top: 0;
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+
+    /*
+    Student note:
+    This block prevents tiny overflow in newsletter form at 768px.
+    The `<form>` is a flex row, so `<input>` can keep implicit minimum size and push layout by a few pixels.
+    `min-width: 0` on the input allows shrinking inside flex.
+    We also clamp form width with `max-width: 100%`.
+    Without this, you may still see subtle horizontal drift on some devices.
+    */
+    /*
+    Nota para estudante:
+    Este bloco evita overflow pequeno no formulario da newsletter em 768px.
+    O `<form>` e uma linha flex, entao o `<input>` pode manter tamanho minimo implicito e empurrar o layout alguns pixels.
+    `min-width: 0` no input permite encolher dentro do flex.
+    Tambem limitamos a largura do form com `max-width: 100%`.
+    Sem isso, voce ainda pode ver um deslocamento horizontal sutil em alguns dispositivos.
+    */
+    .box-email {
+        width: 100%;
+        padding: 0 6px;
+        box-sizing: border-box;
+    }
+
+    .box-email p {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+        text-align: center;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .box-email form {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .box-email form input {
+        min-width: 0;
+    }
+
+    /*
+    Student note:
+    This block improves card visual size at 768px for Eventos, Galeria and Depoimentos.
+    In Eventos, each `<article>` gets full available width with a safe cap for readability.
+    In Galeria, each Slick slide receives horizontal padding and images fill slide width.
+    In Depoimentos, `.dadosDepo p` becomes wider so text does not feel squeezed.
+    Without this, content can look smaller than expected even on tablet screens.
+    */
+    /*
+    Nota para estudante:
+    Este bloco melhora o tamanho visual dos cards em 768px para Eventos, Galeria e Depoimentos.
+    Em Eventos, cada `<article>` recebe largura total disponivel com limite seguro para leitura.
+    Em Galeria, cada slide do Slick recebe padding horizontal e as imagens preenchem a largura do slide.
+    Em Depoimentos, `.dadosDepo p` fica mais largo para o texto nao parecer apertado.
+    Sem isso, o conteudo pode parecer menor do que deveria mesmo em telas de tablet.
+    */
+    .eventos .cardEventos article {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /*
+    Student note:
+    This block adds real horizontal breathing space between Slick slides in Eventos.
+    `.slick-slide` is the outer wrapper generated by Slick around each card item.
+    We add side `padding` on each slide and compensate with negative margins on `.slick-list`,
+    so the first/last card still aligns with the container edges.
+    Without this, cards can look glued together even when each article has internal spacing.
+    */
+    /*
+    Nota para estudante:
+    Este bloco adiciona espacamento horizontal real entre os slides do Slick em Eventos.
+    `.slick-slide` e o wrapper externo gerado pelo Slick ao redor de cada card.
+    Adicionamos `padding` lateral em cada slide e compensamos com margem negativa no `.slick-list`,
+    para o primeiro/ultimo card continuar alinhado nas bordas do container.
+    Sem isso, os cards podem parecer colados mesmo com espacamento interno no article.
+    */
+    .eventos .cardEventos .slick-list {
+        margin: 0 -8px;
+    }
+
+    .eventos .cardEventos .slick-slide {
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    .itensGaleria .slick-slide {
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .itensGaleria img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .dadosDepo p {
+        width: 85%;
+    }
+
+    /*
+    Student note:
+    This block makes Eventos arrows match Depoimentos style at 768px.
+    We target Slick pseudo-elements (`.slick-prev:before` and `.slick-next:before`) and apply the same color/size language.
+    Then we keep arrow buttons visible with positive `left` and `right` offsets.
+    Without this, Eventos can keep a different arrow visual and feel inconsistent with Depo.
+    */
+    /*
+    Nota para estudante:
+    Este bloco faz as setas de Eventos combinarem com o estilo de Depoimentos em 768px.
+    Miramos nos pseudo-elementos do Slick (`.slick-prev:before` e `.slick-next:before`) e aplicamos a mesma linguagem de cor/tamanho.
+    Depois mantemos os botoes visiveis com offsets positivos em `left` e `right`.
+    Sem isso, Eventos pode manter visual diferente nas setas e passar inconsistencia com Depo.
+    */
+    .eventos .slick-prev:before,
+    .eventos .slick-next:before {
+        font-size: 40px;
+        color: black;
+    }
+
+    .eventos .slick-prev {
+        left: 24px;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .eventos .slick-next {
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+  
+
+} /* FIM DO MEDIA 768PX - TABLET */
+
+/* ######################### */
+/*      Até 380px (CELULAR)  */
+/* ######################### */
+
+/*
+Student note:
+This media-query block previously hid menu buttons above 380px and conflicted with tablet behavior.
+We keep it neutral so the 380px styles stay organized below.
+Button visibility is now controlled by the desktop rule (`min-width: 769px`) and active mobile/tablet blocks.
+*/
+/*
+Nota para estudante:
+Este bloco de media query antes escondia os botoes acima de 380px e conflitava com o tablet.
+Mantemos neutro para organizar os estilos de 380px logo abaixo.
+A visibilidade dos botoes agora e controlada pela regra de desktop (`min-width: 769px`) e pelos blocos ativos de mobile/tablet.
+*/
+@media not all and (max-width: 380px) {
+} /*  Fim not all and 380px  */
+
+@media (max-width: 380px) {
+
+    /* MENU */
+
+    .topo h1{
+        margin: 10px;
+    }
+
+    .menu {
+        /* Check out this in the chat for breakdown */
+        background-color: #b56a34;
+        height: 100%;
+        position: fixed;
+        max-width: 230px;
+        width: 45%;
+        z-index: 10;
+        top: 0;
+        right: -200px;
+        transition: right 1s ease-in-out;
+        box-shadow: -3px 0 5px rgba(69, 40, 20, 0.5);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .menu-ativo{
+        color: var(--cor-texto)!important;
+    }
+
+    .menu-mobile .menu{
+        right: 0;
+        display: flex;
+
+    }
+
+    /*
+    Student note:
+    Same fade logic for 380px, but with the original mobile slide speed.
+    Here the panel slides in `1s`, so `.abrir-menu` also fades over `1s`.
+    This keeps the button disappearance/appearance synchronized with menu movement.
+    */
+    /*
+    Nota para estudante:
+    Mesma logica de fade para 380px, mas com a velocidade original do slide mobile.
+    Aqui o painel desliza em `1s`, entao `.abrir-menu` tambem faz fade em `1s`.
+    Isso mantem o sumico/aparicao do botao sincronizado com o movimento do menu.
+    */
+    .menu-mobile .abrir-menu{
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 1s ease, visibility 0s linear 1s;
+    }
+
+    /*
+    Student note:
+    This block adds the close-button fade for the 380px menu state.
+    While `.menu-mobile` is active, `fechar-menu` becomes visible and clickable with `opacity: 1`.
+    When closing, it fades out using the same 1s rhythm as the menu slide.
+    This keeps the open/close controls visually synchronized.
+    */
+    /*
+    Nota para estudante:
+    Este bloco adiciona o fade do botao de fechar no estado de menu em 380px.
+    Enquanto `.menu-mobile` esta ativo, `fechar-menu` fica visivel e clicavel com `opacity: 1`.
+    Ao fechar, ele some com fade usando o mesmo ritmo de 1s do slide do menu.
+    Isso mantem os controles de abrir/fechar sincronizados visualmente.
+    */
+    .menu-mobile .fechar-menu{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity 1s ease, visibility 0s linear 0s;
+    }
+
+    .menu ul{  
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .menu ul li a:hover {
+        color: var(--cor-fundo-1);
+
+    }
+
+    /*
+    Student note:
+    380px keeps the original working visual style (`background-size: cover` + `padding`).
+    Only animation timing is synchronized with the mobile slide speed (`1s`) for smoother button transitions.
+    */
+    /*
+    Nota para estudante:
+    Em 380px mantemos o visual original que funcionava (`background-size: cover` + `padding`).
+    Apenas o tempo da animacao foi sincronizado com a velocidade do slide mobile (`1s`) para transicoes mais suaves.
+    */
+    .abrir-menu{
+        background-image: url(../assets/menu.png);
+        background-size: cover;
+        padding: 18px;
+        border: 0;
+        display: block;
+        margin-right: 20px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity 1s ease, visibility 0s linear 0s;
+    }
+
+    .fechar-menu{
+        background-image: url(../assets/fechar.png);
+        background-size: cover;
+        padding: 18px;
+        border: 0;
+        display: block;
+        margin-right: 10px;
+        align-self: start;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 1s ease, visibility 0s linear 1s;
+    }   
+
+
+    .menu .redeSocial {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .menu .redeSocial li a{
+        margin: 0;
+    }
+
+    .banner {display: none;}
+
+    /* FINAL DO MENU */
+
+    /* BEM VINDO */
+    .bem-vindo header p {width: auto;}
+
+    .bem-vindo div div{
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    /* FINAL DO BEM VINDO */
+
+    /* COMEÇO DO DESTAQUE */
+    .destaque .card {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .destaque article{
+        width: 85%;
+        height: auto;
+
+    }
+
+    .card-flip{
+        width: 95%;
+    }
+
+    .btn-cardapio {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        justify-content: center;
+    
+    }
+    /* FINAL DO DESTAQUE */
+
+    /* COMEÇO DO EQUIPE */
+
+    .cardEquipe{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .cardEquipe article {
+       width: 85%;
+       height: auto;
+    }
+    
+    .eventos .slick-prev,
+    .eventos .slick-next {
+        top: 600px;
+
+    }
+
+    .depo .parallax-padrao h3{
+        font-size: 20px;
+        -webkit-text-stroke: .5px var(--cor-fundo-1);
+
+    }
+
+    .dadosDepo p{
+        width: 65%;
+        font-size: 20px;
+    }
+
+    .depo .itensDepo .slick-prev:before, 
+    .itensDepo .slick-next:before{
+        font-size: 40px ;
+    }
+
+    .depo .slick-next, 
+    .itensDepo .slick-next{
+        right: 60px;
+    }
+
+    .dadosDepo div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dadosDepo h5 {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    /* COMEÇO DO RODAPE */
+    .coluna-end{
+        margin-top: 50px;
+    }
+
+    .rodape .rodape-grid {
+        flex-direction: column;
+    }
+
+    .coluna-reserva{
+        width: 98%;
+    }
+
+    .box-reserva{
+        top: 10px;
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* NEWSLETTER */
+
+    .box-email p{
+    margin-top: 50px;
+    margin-bottom: 15px;
+    }
+
+    .box-email form{
+        width: 90%;
+    }
+
+
+    .box-email form label{
+       padding: 8px;
+       font-size: 15px;
+
+    }
+
+    .box-email form button{
+        width: 44px;
+    }
+
+    .box-email form button img{
+        width: 20px;
+        height: 20px;
+        display: block;
+
+    }
+
+    .coluna-contato{
+        margin-bottom: 30px;
+    }
+
+    /*
+    Student note:
+    This is an explicit safety rule for the 380px breakpoint.
+    We target the Slick arrow buttons (`.slick-prev` and `.slick-next`) inside `.eventos` and force them to stay inside the viewport with positive offsets.
+    `left: 8px` and `right: 8px` prevent the desktop negative positions from leaking into tiny screens.
+    Without this, one arrow can sit outside the visible area and create horizontal scroll.
+    For the user, swipe and tap navigation feels clean because the page no longer drifts sideways.
+    */
+    /*
+    Nota para estudante:
+    Esta e uma regra de seguranca explicita para o breakpoint de 380px.
+    Miramos nos botoes de seta do Slick (`.slick-prev` e `.slick-next`) dentro de `.eventos` e forçamos eles a ficar dentro da tela com offsets positivos.
+    `left: 8px` e `right: 8px` evitam que as posicoes negativas do desktop vazem para telas muito pequenas.
+    Sem isso, uma seta pode ficar fora da area visivel e criar rolagem horizontal.
+    Para o usuario, a navegacao por swipe e toque fica limpa porque a pagina para de escapar para os lados.
+    */
+    .eventos .slick-prev {
+        left: 8px;
+    }
+
+    .eventos .slick-next {
+        right: 8px;
+    }
+
+    /*
+    Student note:
+    This footer rule is also repeated here at 380px to lock the box width behavior.
+    `box-sizing: border-box` tells the browser to include `padding` inside `.box-reserva` width.
+    With `width: 90%` plus `padding`, this avoids accidental overflow beyond the gray footer container.
+    Without it, the reservation card can look slightly pushed out and trigger a thin horizontal scroll line.
+    For the user, the footer card stays visually centered and stable on very small phones.
+    */
+    /*
+    Nota para estudante:
+    Esta regra do rodape tambem e repetida aqui em 380px para travar o comportamento de largura da caixa.
+    `box-sizing: border-box` diz ao navegador para incluir o `padding` dentro da largura da `.box-reserva`.
+    Com `width: 90%` mais `padding`, isso evita overflow acidental para fora do container cinza do rodape.
+    Sem isso, o card de reserva pode parecer um pouco para fora e gerar uma linha fina de rolagem horizontal.
+    Para o usuario, o card do rodape fica visualmente centralizado e estavel em celulares bem pequenos.
+    */
+    .box-reserva {
+        box-sizing: border-box;
+    }
+
+    /*
+    Student note:
+    This block controls the mobile footer container `.rodape .rodape-grid`.
+    The parent uses `display: flex`; at 380px we keep `flex-direction: column`, but now force `align-items: stretch`.
+    `align-items: stretch` makes each child column (`.coluna-end`, `.coluna-reserva`, `.coluna-contato`) fill the available row width instead of staying centered with narrow width.
+    We also reduce side `padding` and `gap` so content does not look pushed to the right.
+    Without this, the footer can look visually off-center even without a real horizontal scrollbar.
+    For the user, the footer reads as one clean full-width stack.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o container do rodape no mobile `.rodape .rodape-grid`.
+    O pai usa `display: flex`; em 380px mantemos `flex-direction: column`, mas agora forçamos `align-items: stretch`.
+    `align-items: stretch` faz cada coluna filha (`.coluna-end`, `.coluna-reserva`, `.coluna-contato`) ocupar toda a largura da linha, em vez de ficar centralizada e estreita.
+    Tambem reduzimos `padding` lateral e `gap` para o conteudo nao parecer empurrado para a direita.
+    Sem isso, o rodape pode parecer desalinhado mesmo sem barra horizontal real.
+    Para o usuario, o rodape vira uma pilha limpa ocupando toda a largura.
+    */
+    .rodape .rodape-grid {
+        align-items: stretch;
+        padding: 0 10px;
+        gap: 30px;
+    }
+
+    /*
+    Student note:
+    This block controls the reservation middle column and card (`.coluna-reserva` > `.box-reserva`).
+    We set both to `width: 100%` so the card occupies the full width of its parent from left to right.
+    `max-width: none` removes the old fixed cap feeling, and `box-sizing: border-box` keeps `padding` inside width.
+    `top: 0` avoids vertical offset that can make the block feel detached from surrounding structure on small screens.
+    Without these lines, the card can look narrow, shifted, or leak visually outside the gray footer area.
+    For the user, the reservation card becomes stable, full-width, and easier to scan.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla a coluna central de reserva e o card (`.coluna-reserva` > `.box-reserva`).
+    Definimos os dois com `width: 100%` para o card ocupar toda a largura do pai da esquerda para a direita.
+    `max-width: none` remove a sensacao de limite fixo, e `box-sizing: border-box` mantem o `padding` dentro da largura.
+    `top: 0` evita deslocamento vertical que pode deixar o bloco "solto" na estrutura em telas pequenas.
+    Sem essas linhas, o card pode parecer estreito, deslocado, ou vazando visualmente para fora da area cinza.
+    Para o usuario, o card de reserva fica estavel, em largura total e mais facil de ler.
+    */
+    .coluna-reserva {
+        width: 100%;
+    }
+
+    .box-reserva {
+        width: 100%;
+        max-width: none;
+        top: 0;
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+
+    /*
+    Student note:
+    This block controls newsletter text and form inside `.box-email`.
+    We force `width: 100%` and safe inline padding so the `<p>` and `<form>` stay inside the section bounds.
+    `word-break: break-word` helps long words/strings wrap instead of overflowing.
+    Without this, the paragraph can appear to escape the footer width, especially on 380px screens.
+    For the user, text stays readable and aligned with the card edges.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o texto e o formulario da newsletter dentro de `.box-email`.
+    Forcamos `width: 100%` e padding interno seguro para o `<p>` e o `<form>` ficarem dentro dos limites da secao.
+    `word-break: break-word` ajuda palavras/strings longas quebrarem em linha, evitando vazamento.
+    Sem isso, o paragrafo pode parecer sair da largura do rodape, especialmente em 380px.
+    Para o usuario, o texto fica legivel e alinhado com as bordas do card.
+    */
+    .box-email {
+        width: 100%;
+        padding: 0 6px;
+        box-sizing: border-box;
+    }
+
+    .box-email p {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+        text-align: center;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .box-email form {
+        width: 100%;
+    }
+
+    /*
+    Student note:
+    This block controls overflow behavior inside the newsletter `<form>` row on very small screens.
+    The form uses `display: flex`, where `<label>`, `<input>` and `<button>` share one line.
+    In flex layouts, an `<input>` can keep an implicit minimum width and refuse to shrink enough, creating a tiny horizontal overflow.
+    `min-width: 0` on the `<input>` is the key line that allows real shrinking.
+    We also keep `max-width: 100%` and `box-sizing: border-box` on the form to guarantee it never grows past the parent width.
+    Without this, you can get exactly that almost-invisible horizontal line.
+    */
+    /*
+    Nota para estudante:
+    Este bloco controla o comportamento de overflow dentro da linha do `<form>` da newsletter em telas muito pequenas.
+    O form usa `display: flex`, onde `<label>`, `<input>` e `<button>` dividem a mesma linha.
+    Em layout flex, o `<input>` pode manter uma largura minima implicita e se recusar a encolher o suficiente, criando um pequeno overflow horizontal.
+    `min-width: 0` no `<input>` e a linha principal que permite encolhimento real.
+    Tambem mantemos `max-width: 100%` e `box-sizing: border-box` no form para garantir que ele nunca passe da largura do pai.
+    Sem isso, aparece exatamente essa linha horizontal quase invisivel.
+    */
+    .box-email form {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .box-email form input {
+        min-width: 0;
+    }
+
+    /*
+    Student note:
+    This block prevents the Eventos, Galeria and Depoimentos slides from looking "shrunk" on tiny screens.
+    In Eventos, the `<article>` now uses full available width (`width: 100%`) and removes the old width cap with `max-width: none`.
+    In Galeria, each Slick slide gets inner padding while `img` uses `width: 100%`, so images fill the card area without squeezing.
+    In Depoimentos, `.dadosDepo p` gets wider (`90%`) so text does not feel compressed into a narrow column.
+    Without these adjustments, cards can look tiny or cramped even when technically responsive.
+    For the user, content feels proportional and comfortable to read.
+    */
+    /*
+    Nota para estudante:
+    Este bloco evita que os slides de Eventos, Galeria e Depoimentos parecam "encolhidos" em telas muito pequenas.
+    Em Eventos, o `<article>` agora usa largura total disponivel (`width: 100%`) e remove o limite antigo com `max-width: none`.
+    Em Galeria, cada slide do Slick recebe padding interno e o `img` usa `width: 100%`, preenchendo o card sem apertar.
+    Em Depoimentos, `.dadosDepo p` fica mais largo (`90%`) para o texto nao parecer comprimido em uma coluna estreita.
+    Sem esses ajustes, os cards podem parecer pequenos ou apertados mesmo sendo responsivos.
+    Para o usuario, o conteudo fica proporcional e confortavel para leitura.
+    */
+    .eventos .cardEventos article {
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    /*
+    Student note:
+    This is the same Eventos slide-gap technique for 380px, to keep spacing consistent with tablet.
+    Using `.slick-list` negative side margin plus `.slick-slide` side padding creates clean gutters between cards.
+    Without this mirrored rule, spacing can differ between 768px and 380px and feel visually inconsistent.
+    */
+    /*
+    Nota para estudante:
+    Esta e a mesma tecnica de espacamento dos slides de Eventos para 380px, mantendo consistencia com tablet.
+    Usar margem lateral negativa no `.slick-list` com padding lateral no `.slick-slide` cria respiros limpos entre cards.
+    Sem essa regra espelhada, o espacamento pode ficar diferente entre 768px e 380px e parecer inconsistente.
+    */
+    .eventos .cardEventos .slick-list {
+        margin: 0 -8px;
+    }
+
+    .eventos .cardEventos .slick-slide {
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    .itensGaleria .slick-slide {
+        padding: 0 8px;
+        box-sizing: border-box;
+    }
+
+    .itensGaleria img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .dadosDepo p {
+        width: 90%;
+    }
+
+    /*
+    Student note:
+    This block makes Eventos arrows follow the same visual style as Depoimentos arrows.
+    We match the pseudo-element selectors `.slick-prev:before` and `.slick-next:before` with `font-size: 40px` and `color: black`.
+    Then we keep both arrows inside the viewport with explicit `left` and `right` offsets.
+    Without this, Eventos arrows keep a different color/look from Depo and can still feel misaligned on small screens.
+    For the user, both carousels now feel visually consistent and easier to use.
+    */
+    /*
+    Nota para estudante:
+    Este bloco faz as setas de Eventos seguirem o mesmo estilo visual das setas de Depoimentos.
+    Igualamos os pseudo-elementos `.slick-prev:before` e `.slick-next:before` com `font-size: 40px` e `color: black`.
+    Depois mantemos as duas setas dentro da tela com offsets explicitos em `left` e `right`.
+    Sem isso, as setas de Eventos ficam com visual diferente das de Depo e podem parecer desalinhadas no mobile.
+    Para o usuario, os dois carrosseis ficam consistentes visualmente e mais faceis de usar.
+    */
+    .eventos .slick-prev:before,
+    .eventos .slick-next:before {
+        font-size: 40px;
+        color: black;
+    }
+
+    .eventos .slick-prev {
+        left: 16px;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .eventos .slick-next {
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+  
+
+} /* FIM DO MEDIA 380PX - TELEMOVEL */

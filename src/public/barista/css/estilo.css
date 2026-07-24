@@ -461,6 +461,8 @@ p{
   border-radius: 25px;
   overflow: hidden;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   display:flex;
   padding: 22px;
 
@@ -472,7 +474,7 @@ p{
   background-position: center;
   align-items: center;
   justify-content: flex-start; 
-
+  transform-style: preserve-3d;
 }
 
 .flip1::before{
@@ -480,8 +482,8 @@ p{
   position: absolute;
   inset: 0;
   background-color: rgba(11, 11, 11, .50);
-
-
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .flip1 h4{
@@ -625,17 +627,6 @@ last-child = último filho
 }
 
 /* 
-Student note:
-This box is the area where the line and the bean icon are built together.
-`position: relative` is the key part: it tells CSS that absolute elements inside
-must use this box as their reference point.
-So when we center the bean with absolute positioning, it stays centered here,
-not in another part of the page.
-We also keep `display: flex` and `align-items: center` so this row stays neatly
-aligned in the middle of its own height.
-*/
-/* 
-Nota para estudante:
 Esta caixa é a área onde a linha e o ícone de grão são montados juntos.
 `position: relative` é a parte principal: ele diz ao CSS que elementos absolutos
 internos devem usar ESTA caixa como ponto de referência.
@@ -653,16 +644,6 @@ bem alinhada no meio da própria altura.
 }
 
 /* 
-Student note:
-This `<hr>` is used as a custom line, not as the browser default separator.
-`width: 100%` makes the line stretch across the whole row.
-`border: none` removes default browser styles that can look different from one browser to another.
-Then we define our own visual style:
-`height` controls thickness, `background-color` controls color,
-and `opacity` makes the line slightly softer.
-*/
-/* 
-Nota para estudante:
 Este `<hr>` é usado como linha personalizada, não como separador padrão do navegador.
 `width: 100%` faz a linha ocupar toda a largura da faixa.
 `border: none` remove estilos padrão que podem variar entre navegadores.
@@ -680,17 +661,6 @@ e `opacity` deixa a linha um pouco mais suave.
 }
 
 /* 
-Student note:
-The bean icon is placed with `position: absolute` so it can sit over the line.
-`left: 50%` moves the icon's left side to the center of the container.
-`transform: translateX(-50%)` pulls it back by half of its own width.
-These two lines together create true horizontal centering.
-`padding: 0 8px` adds space on the left and right of the icon background.
-With `background-color` matching the card color, this space hides part of the line,
-so the line looks like it continues behind the bean.
-*/
-/* 
-Nota para estudante:
 O ícone do grão usa `position: absolute` para poder ficar por cima da linha.
 `left: 50%` coloca o lado esquerdo do ícone no centro do container.
 `transform: translateX(-50%)` puxa o ícone para trás metade da própria largura.
@@ -849,15 +819,6 @@ fazendo parecer que a linha continua por trás do grão.
 }
 
 /*
-Student note:
-Imagine the footer as a balance: left and right must share space with the same weight.
-This rule applies `flex: 1 1 0` to `.coluna-end` and `.coluna-contato`.
-`flex-grow: 1` and `flex-shrink: 1` make both sides expand and contract together.
-`flex-basis: 0` gives both sides the same starting width.
-Without this, one side can dominate and the center block feels visually off-center.
-*/
-/*
-Nota para estudante:
 Imagine o rodape como uma balanca: esquerda e direita precisam dividir o espaco com o mesmo peso.
 Esta regra aplica `flex: 1 1 0` em `.coluna-end` e `.coluna-contato`.
 `flex-grow: 1` e `flex-shrink: 1` fazem os dois lados crescerem e encolherem juntos.
@@ -870,15 +831,6 @@ Sem isso, um lado pode dominar e o bloco central fica com cara de fora do centro
 }
 
 /*
-Student note:
-After balancing the sides, we protect the center card shape.
-In `.coluna-reserva`, `flex: 0 0 auto` means:
-first `0` = do not grow, second `0` = do not shrink, `auto` = keep content width.
-This keeps the middle block stable while side columns adapt.
-Without this, the center can stretch/compress and the footer loses visual harmony.
-*/
-/*
-Nota para estudante:
 Depois de equilibrar os lados, protegemos o formato do card central.
 Em `.coluna-reserva`, `flex: 0 0 auto` significa:
 primeiro `0` = nao crescer, segundo `0` = nao encolher, `auto` = manter largura do conteudo.
@@ -1065,7 +1017,7 @@ background-color: var(--cor-terciaria);
 
 
 /* *******************
-    Contact page
+    Contato
 **********************/
 
 #pg-contato .rodape,
@@ -1080,15 +1032,8 @@ body.pg-contato {
 
 #pg-contato #contato.contato,
 body.pg-contato #contato.contato {
+
   /*
-  Student note:
-  This block controls the main contact-page container.
-  We disable the forced `width: 100%` and use `width: auto` with `max-width: 1500px`.
-  `max-width` still limits the layout size, while `width: auto` avoids hard full-width behavior that can create awkward expansion at 1200px and similar sizes.
-  Without this change, the container may stretch more than desired even when the visual design works better with natural width.
-  */
-  /*
-  Nota para estudante:
   Este bloco controla o container principal da pagina de contato.
   Desativamos o `width: 100%` forçado e usamos `width: auto` com `max-width: 1500px`.
   `max-width` ainda limita o tamanho do layout, enquanto `width: auto` evita comportamento de largura total fixa que pode gerar expansao estranha em 1200px e tamanhos parecidos.
@@ -1200,15 +1145,6 @@ body.pg-contato #contato .contato-card ul {
 }
 
 /*
-Student note:
-This is where each social item starts to feel like a real button.
-Inside `ul.contato-redeSocial`, every `li` gets size with `width` and `height`.
-`border-radius: 50%` turns the square area into a circle.
-`background-color` gives the resting visual state before hover.
-Without this, icons look loose and the button shape disappears.
-*/
-/*
-Nota para estudante:
 Aqui cada item social comeca a parecer um botao de verdade.
 Dentro de `ul.contato-redeSocial`, cada `li` recebe tamanho com `width` e `height`.
 `border-radius: 50%` transforma a area quadrada em circulo.
@@ -1226,16 +1162,6 @@ body.pg-contato .contato .contato-redeSocial li {
 }
 
 /*
-Student note:
-This is the `li:hover` state for contact social buttons.
-`background-color` changes the circle color when the pointer is over it.
-`transform` lifts and scales the circle for the same interactive feel as the top menu.
-`box-shadow` adds depth so the movement is visible.
-This selector is intentionally more specific than the base `li` rule.
-Without that specificity, CSS keeps the base color and hover seems not to work.
-*/
-/*
-Nota para estudante:
 Este e o estado `li:hover` dos botoes sociais do contato.
 `background-color` troca a cor do circulo quando o ponteiro passa por cima.
 `transform` levanta e aumenta levemente o circulo para manter a mesma sensacao interativa do topo.
@@ -1253,15 +1179,6 @@ body.pg-contato .contato .contato-redeSocial li:hover {
 }
 
 /*
-Student note:
-Inside each social `li`, the `<a>` tag is the clickable layer.
-`display: inline-flex` enables flex centering.
-`width: 100%` and `height: 100%` make the link occupy the whole circle.
-`align-items` and `justify-content` keep the `<img>` centered.
-Without this, only a tiny icon area is clickable and interaction feels fragile.
-*/
-/*
-Nota para estudante:
 Dentro de cada `li` social, a tag `<a>` e a camada clicavel.
 `display: inline-flex` habilita centralizacao com flex.
 `width: 100%` e `height: 100%` fazem o link ocupar o circulo inteiro.
@@ -1280,14 +1197,6 @@ body.pg-contato .contato .contato-redeSocial a {
 }
 
 /*
-Student note:
-This final step adjusts the icon `<img>` itself.
-`width` and `height` tune icon size independently from circle size.
-`display: block` removes inline baseline spacing that can shift the icon a little.
-Without this, the icon can look tiny or slightly off-center.
-*/
-/*
-Nota para estudante:
 Este passo final ajusta a propria tag `<img>` do icone.
 `width` e `height` regulam o tamanho do icone sem mexer no tamanho do circulo.
 `display: block` remove o espaco de baseline inline que pode deslocar levemente o icone.
@@ -1386,14 +1295,6 @@ body.pg-contato #contato .form-linha button {
 }
 
 /*
-Student note:
-This rule styles `.form-linha-acoes`, the wrapper `div` that contains both `<button>` tags.
-Because `.form-linha` already uses `display: flex`, this line controls horizontal distribution.
-`justify-content: space-between` pushes the first button to the start and the second to the end.
-Without this, both buttons stay close together and the action area looks cramped.
-*/
-/*
-Nota para estudante:
 Esta regra estiliza `.form-linha-acoes`, a `div` que agrupa as duas tags `<button>`.
 Como `.form-linha` ja usa `display: flex`, esta linha controla a distribuicao horizontal.
 `justify-content: space-between` joga o primeiro botao para o inicio e o segundo para o fim.

@@ -14,15 +14,8 @@ $('.itensGaleria').slick({
   pauseOnFocus: false,
   arrows:false,
   mobileFirst: true,
+
   /*
-  Student note:
-  This responsive block controls how many Galeria cards are visible at each viewport width.
-  We use smaller `slidesToShow` values as the screen shrinks so cards stay readable and do not look squeezed.
-  `slidesToScroll: 1` keeps movement smooth and predictable for touch interaction.
-  Without this progressive reduction, gallery cards can look broken or too narrow on tablet and phone.
-  */
-  /*
-  Nota para estudante:
   Este bloco responsivo controla quantos cards da Galeria ficam visiveis em cada largura de tela.
   Usamos valores menores de `slidesToShow` conforme a tela diminui para manter leitura e evitar cards espremidos.
   `slidesToScroll: 1` deixa o movimento suave e previsivel no toque.
@@ -59,14 +52,8 @@ $('.itensDepo').slick({
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2250,
+
   /*
-  Student note:
-  Depoimentos is a long-text section, so keeping one slide visible at all breakpoints preserves readability.
-  If we increase `slidesToShow` on smaller screens, each testimonial gets compressed and the layout feels broken.
-  We keep `slidesToScroll: 1` consistently to maintain the same interaction pattern.
-  */
-  /*
-  Nota para estudante:
   Depoimentos e uma secao de texto longo, entao manter um slide visivel em todos os breakpoints preserva a leitura.
   Se aumentarmos `slidesToShow` em telas menores, cada depoimento fica comprimido e o layout parece quebrado.
   Mantemos `slidesToScroll: 1` sempre para conservar o mesmo padrao de interacao.
@@ -109,15 +96,8 @@ $('.cardEventos').slick({
   autoplay: true,
   autoplaySpeed: 2250,
   mobileFirst: true,
+
   /*
-  Student note:
-  This responsive map controls card density in Eventos.
-  On wide screens we can show more cards, but on tablet/phone we reduce to 2 then 1.
-  That avoids tiny cards and prevents the section from looking broken.
-  Keeping `slidesToScroll: 1` gives smoother navigation and avoids big jumps.
-  */
-  /*
-  Nota para estudante:
   Este mapa responsivo controla a densidade de cards em Eventos.
   Em telas largas podemos mostrar mais cards, mas em tablet/celular reduzimos para 2 e depois 1.
   Isso evita cards minimos e impede que a secao pareca quebrada.

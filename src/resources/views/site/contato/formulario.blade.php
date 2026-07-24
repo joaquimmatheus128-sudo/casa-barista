@@ -133,11 +133,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && !empty($_POST['email'])) {
                     </article>
 
                     <article class="contato-card">
-                        <h3>Siga-nos</h3>ul class="redeSocial contato-redeSocial">
-                            <li><a href="#" target="_blank"><img src="assets/facebook-24.png" alt="logo facebook casa do barista"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/instagram-24.png" alt="logo instagram casa do barista"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/linkedin-24.png" alt="logo linkedin casa do barista"></a></li>
-                            <li><a href="https://wa.me/5511988662233?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Casa%20Do%20Barista%20%E2%98%95" target="_blank"><img src="assets/whatsapp-24.png" alt="logo whatsapp casa do barista"></a></li>
+                        <h3>Siga-nos</h3>
+                        <ul class="redeSocial contato-redeSocial">
+                            <li><a href="#" target="_blank"><img src="{{ asset('barista/assets/facebook-24.png') }}" alt="logo facebook casa do barista"></a></li>
+                            <li><a href="#" target="_blank"><img src="{{ asset('barista/assets/instagram-24.png') }}" alt="logo instagram casa do barista"></a></li>
+                            <li><a href="#" target="_blank"><img src="{{ asset('barista/assets/linkedin-24.png') }}" alt="logo linkedin casa do barista"></a></li>
+                            <li><a href="https://wa.me/5511988662233?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Casa%20Do%20Barista%20%E2%98%95" target="_blank"><img src="{{ asset('barista/assets/whatsapp-24.png') }}" alt="logo whatsapp casa do barista"></a></li>
                         </ul>
                     </article>
                 </div>

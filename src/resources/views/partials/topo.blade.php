@@ -8,22 +8,21 @@
                 <button class="abrir-menu"></button>
                 <nav class="menu">
                     <button class="fechar-menu"></button>
-                    <?php $pgAtual = basename($_SERVER['PHP_SELF']);?>
                     <ul>
                         <li>
-                            <a class="<?php if($pgAtual == 'index.php') echo 'menu-ativo'?>" href="{{ route('home') }}">Home</a>
+                            <a class="{{ request()->routeIs('home') ? 'menu-ativo' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li>
-                            <a class="<?php if($pgAtual == 'sobre.php') echo 'menu-ativo'?>" href="{{ route('sobre') }}">Sobre</a>
+                            <a class="{{ request()->routeIs('sobre') ? 'menu-ativo' : '' }}" href="{{ route('sobre') }}">Sobre</a>
                         </li>
                         <li>
-                            <a class="<?php if($pgAtual == 'cardapio.php') echo 'menu-ativo'?>" href="{{ route('cardapio') }}">Cardápio</a>
+                            <a class="{{ request()->routeIs('cardapio') ? 'menu-ativo' : '' }}" href="{{ route('cardapio') }}">Cardápio</a>
                         </li>
                         <li>
-                            <a class="<?php if($pgAtual == 'eventos.php') echo 'menu-ativo'?>" href="{{ route('eventos') }}">Eventos</a>
+                            <a class="{{ request()->routeIs('eventos') ? 'menu-ativo' : '' }}" href="{{ route('eventos') }}">Eventos</a>
                         </li>
                         <li>
-                            <a class="<?php if($pgAtual == 'contato.php') echo 'menu-ativo'?>" href="{{ route('contato') }}">Contato</a>
+                            <a class="{{ request()->routeIs('contato') ? 'menu-ativo' : '' }}" href="{{ route('contato') }}">Contato</a>
                         </li>
                     </ul>
 

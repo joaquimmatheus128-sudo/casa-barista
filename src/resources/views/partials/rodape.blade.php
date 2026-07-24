@@ -16,7 +16,7 @@
                         <h3>Faça sua Reserva</h3>
                         <div class="linha-box">
                             <hr>
-                            <img src="{{ asset('barista/assets/coffeeres.svg') }}" alt="Faça sua reserva">
+                            <img src="{{ asset('barista/assets/coffee1.svg') }}" alt="Faça sua reserva">
                             <hr>
                         </div>
                         <ul>

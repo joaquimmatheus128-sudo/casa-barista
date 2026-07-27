@@ -1,5 +1,9 @@
 <section class="banner">
-    <img src="{{ asset('barista/assets/banner1.png') }}" alt="banner1">
-    <img src="{{ asset('barista/assets/banner2.png') }}" alt="banner2">
-    <img src="{{ asset('barista/assets/banner3.png') }}" alt="banner3">
+    @foreach ($listaBanner as $linha)
+
+        <img src="{{ asset("barista/assets/$linha->imagem_banner") }}" alt="{{ $linha->titulo_banner }}">
+
+    @endforeach
+    
+
 </section> 

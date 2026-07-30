@@ -24,7 +24,7 @@ Class Produto extends Model{
         'destaque_produto',
         'status_produto'
     ];
-    public function categorias(){
+    public function categoria(){
     return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');
     }
 }

@@ -20,7 +20,7 @@ class HomeController extends Controller{
         //var_dump($listaBanner);
 
         
-        $cardapio = Produto::where('status_produto', 'ATIVO')->inRandomOrder()->get();
+        //$cardapio = Produto::where('status_produto', 'ATIVO')->inRandomOrder()->get();
 
         
         //Buscar os depoimentos APROVADO junto com os dados dos clientes
@@ -31,7 +31,7 @@ class HomeController extends Controller{
 
         //dd($listaDepo)->toArray();
         
-        return view('site.home.home', compact('listaBanner', 'cardapio', 'listaDepo', 'listaGaleria'));
+        return view('site.home.home', compact('listaBanner', 'listaDepo', 'listaGaleria'));
 
     }
 

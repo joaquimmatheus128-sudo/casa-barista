@@ -15,12 +15,21 @@
                         <li>
                             <a class="{{ request()->routeIs('sobre') ? 'menu-ativo' : '' }}" href="{{ route('sobre') }}">Sobre</a>
                         </li>
-                        <li>
+                        <li class="item-submenu">
                             <a class="{{ request()->routeIs('cardapio') ? 'menu-ativo' : '' }}" href="{{ route('cardapio') }}">Cardápio</a>
-                        </li>
-                        <li>
-                            <a class="{{ request()->routeIs('eventos') ? 'menu-ativo' : '' }}" href="{{ route('eventos') }}">Eventos</a>
-                        </li>
+                            <!-- Submenu -->
+                            <ul class="submenu">
+
+                                @foreach($categoriaMenu as $linha)
+                                    <li><a href="{{ route('cardapio.categoria', ['idCategoria' => $linha->id_categoria]) }}">{{ $linha->nome_categoria }}</a></li>
+                                @endforeach
+                                
+                            </ul>
+                            <!-- Fim Submenu -->
+                        </li><!-- Fim Cardápio -->
+                            <li>
+                                <a class="{{ request()->routeIs('eventos') ? 'menu-ativo' : '' }}" href="{{ route('eventos') }}">Eventos</a>
+                            </li>
                         <li>
                             <a class="{{ request()->routeIs('contato') ? 'menu-ativo' : '' }}" href="{{ route('contato') }}">Contato</a>
                         </li>

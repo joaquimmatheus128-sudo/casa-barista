@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Depoimento;
+use App\Models\Galeria;
+use App\Models\Produto;
 
 class HomeController extends Controller{
 
@@ -16,8 +19,20 @@ class HomeController extends Controller{
         //dd($listaBanner);
         //var_dump($listaBanner);
 
-        return view('site.home.home', compact('listaBanner'));
-    
+        
+        $cardapio = Produto::where('status_produto', 'ATIVO')->inRandomOrder()->get();
+
+        
+        //Buscar os depoimentos APROVADO junto com os dados dos clientes
+        $listaDepo = Depoimento::where('status_depoimento', 'APROVADO')->with('DepoimentoCliente')->orderByDesc('id_depoimento')->get();
+
+        //Buscar as imagens ativas da galeria
+        $listaGaleria = Galeria::where('status_galeria', 'ATIVO')->inRandomOrder()->get();
+
+        //dd($listaDepo)->toArray();
+        
+        return view('site.home.home', compact('listaBanner', 'cardapio', 'listaDepo', 'listaGaleria'));
+
     }
 
 

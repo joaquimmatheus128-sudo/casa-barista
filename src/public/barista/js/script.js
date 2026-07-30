@@ -39,7 +39,7 @@ $('.itensGaleria').slick({
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 1
       }
     }

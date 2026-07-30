@@ -707,7 +707,6 @@ fazendo parecer que a linha continua por trás do grão.
 
 /*GALERIA*/
 .itensGaleria{
-  display: flex;
   padding: 50px 0;
 }
 
@@ -715,6 +714,8 @@ fazendo parecer que a linha continua por trás do grão.
   margin: 0 10px;
   border-radius: 25px;
 }
+
+
 
 
 
@@ -734,6 +735,15 @@ fazendo parecer que a linha continua por trás do grão.
 
 .itensDepo .estrela ul li{
   margin: 0 5px;
+}
+ 
+
+.estrela-ativa{
+  opacity: 1;
+}
+
+.estrela-inativa{
+  opacity: 0.2;
 }
 
 .dadosDepo{

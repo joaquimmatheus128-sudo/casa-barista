@@ -604,6 +604,63 @@ last-child = último filho
   padding: 20px;
 }
 
+/* Container do fundo branco (Menu + Produtos) */
+.cardapio-conteudo {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;               /* Espaço entre o menu e os produtos */
+  width: 100%;             /* Ocupa a largura total */
+  margin: 40px 0 40px 20px; /* Margem: topo 40px, direita 0, baixo 40px, esquerda 20px */
+  padding: 0;              /* Remove o padding interno */
+}
+
+/* Coluna esquerda (Menu) */
+.menu-categorias {
+  width: 250px;            /* Largura da coluna na esquerda */
+  flex-shrink: 0;          /* Impede o menu de encolher */
+}
+
+.menu-categorias ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;  /* Empilha os botões */
+  gap: 12px;
+}
+
+/* Botões do menu */
+.menu-categorias ul li a {
+  display: block;
+  padding: 12px 18px;
+  background-color: var(--cor-fundo-1);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid var(--cor-terciaria);
+  transition: all 0.3s ease;
+}
+
+.menu-categorias ul li a:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo-1);
+  border-color: var(--cor-secundaria);
+}
+
+.menu-categorias ul li a.categoria-ativa {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo-1);
+  border-color: var(--cor-primaria);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Área de produtos (Coluna direita) */
+.cardapio .card-cardapio {
+  flex: 1;                 /* Ocupa o restante do espaço */
+  margin-top: 0;           /* Reseta a margem antiga se houver */
+}
 
 /*EQUIPE*/
 .equipe .cardEquipe {

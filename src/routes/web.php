@@ -5,7 +5,7 @@ use App\Http\Controllers\Site\SobreController;
 use App\Http\Controllers\Site\EventosController;
 use App\Http\Controllers\Site\ContatoController;
 use App\Http\Controllers\Site\CardapioController;
-use App\Http\Controllers\Dash\DashController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -18,4 +18,4 @@ Route::get('/cardapio/categoria/{idCategoria}', [CardapioController::class, 'car
 Route::get('/contato', [ContatoController::class, 'contato'])->name('contato');
 
 //Conteúdo do dashboard
-Route::get('/dash', [DashController::class, 'dash'])->name('dash');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

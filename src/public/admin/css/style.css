@@ -1,0 +1,180 @@
+
+/* google */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Local */
+@font-face{
+  font-family: "Geometry Soft Pro-Bold N";
+  src: url(../../barista/fonts/geometry-soft-pro-bold-n.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+
+
+}
+
+:root{
+
+  /* CORES */
+  --cor-fundo-1: #f3e8dc;
+  --cor-fundo-2: #2e2e2e;
+  --cor-primaria: #4b2e1e;
+  --cor-secundaria: #8b5e3c;
+  --cor-terciaria: #b56a34;
+  --cor-destaque: #5c6945;
+
+  --cor-texto: #2e2e2e;
+  --cor-titulo: #4b2e1e;
+  --cor-subtitulo: #8b5e3c;
+
+
+  /* FONTES */
+  --fonte-texto: 'Bebas Neue', sans-serif;
+  --fonte-titulo: 'Geometry Soft Pro-Bold N', sans-serif;
+}
+
+/* Topo */
+.bg-body {
+  --bs-bg-opacity: 1;
+  background-color: var(--cor-fundo-2) !important;
+}
+
+
+/* Cards */
+.text-bg-primary {
+  color: var(--cor-subtitulo) !important;
+  background-color: var(--cor-primaria) !important;
+}
+
+.text-bg-success {
+  color: var(--cor-subtitulo) !important;
+  background-color: var(--cor-primaria) !important;
+}
+
+.text-bg-warning {
+  color: var(--cor-subtitulo) !important;
+  background-color: var(--cor-primaria) !important;
+}
+
+.text-bg-danger {
+  color: var(--cor-subtitulo) !important;
+  background-color: var(--cor-primaria) !important;
+}
+
+
+/* Fundo principal da aplicação */
+body, .app-main, .bg-body-tertiary {
+  background-color: var(--cor-fundo-1) !important;
+  color: var(--cor-subtitulo) !important;
+  font-family: var(--fonte-texto) !important;
+  letter-spacing: 0.5px;
+}
+
+/* Home escrito na direita */
+.app-main .app-content-header .breadcrumb a {
+  color: var(--cor-subtitulo) !important;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--cor-terciaria) !important;
+}
+
+
+/* Tipografia global de títulos */
+h1, h2, h3, h4, h5, h6, .brand-text, .card-title {
+  font-family: var(--fonte-titulo), sans-serif !important;
+  color: var(--cor-titulo) !important;
+}
+
+/* Header / Navbar Superior */
+.app-header {
+  background-color: black !important;
+  border-bottom: none !important;
+}
+
+.app-header .nav-link,
+.app-header .nav-link i,
+.app-header .btn-link {
+  color: var(--cor-subtitulo) !important;
+}
+
+.app-header .nav-link:hover {
+  color: var(--cor-terciaria) !important;
+}
+
+/* Sidebar Menu Lateral */
+ /* Logo */
+.app-sidebar{
+    background: #0b0b0b !important;
+}
+.sidebar-brand{
+    height: 100px;
+}
+.brand-image-custom {
+    width: 150px !important;
+    max-height: none !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.app-sidebar {
+  background-color: black !important;
+  border-right: none !important;
+}
+
+.sidebar-menu .nav-link {
+  color: var(--cor-subtitulo) !important;
+}
+
+.sidebar-menu .nav-link.active,
+.sidebar-menu .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--cor-terciaria) !important;
+}
+
+.nav-header {
+  font-family: var(--fonte-titulo) !important;
+  color: #888888 !important;
+}
+
+/* Cards e Small Boxes */
+.small-box {
+  background-color: var(--cor-primaria) !important;
+  border-radius: 6px;
+  color: var(--cor-subtitulo) !important;
+  box-shadow: none !important;
+}
+
+.small-box .inner h3{
+  color: var(--cor-subtitulo) !important;
+  font-family: var(--fonte-titulo) !important;
+}
+
+.small-box-footer {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  color: var(--cor-fundo-1) !important;
+  font-family: var(--fonte-texto) !important;
+  text-transform: uppercase;
+}
+
+.small-box-footer:hover {
+  color: var(--cor-subtitulo) !important;
+  text-decoration: none;
+}
+
+/* Ícones nos cards */
+.small-box-icon {
+  color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Footer / Rodapé */
+.app-footer {
+  background-color: var(--cor-fundo-2) !important;
+  color: #ffffff !important;
+  border-top: none !important;
+  font-family: var(--fonte-texto) !important;
+}
+
+.app-footer a {
+  color: var(--cor-subtitulo) !important;
+}

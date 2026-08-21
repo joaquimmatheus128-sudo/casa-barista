@@ -69,7 +69,7 @@
     <link rel="preload" href="{{ asset('admin/css/adminlte.css') }}" as="style" />
     <!--end::Accessibility Features-->
 
-    <!--begin::Fonts-->z
+    <!--begin::Fonts-->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
@@ -98,6 +98,7 @@
 
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="{{ asset('admin/css/adminlte.css') }}" />
+    
     <!--end::Required Plugin(AdminLTE)-->
 
     <!-- apexcharts -->
@@ -115,4 +116,6 @@
       integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
       crossorigin="anonymous"
     />
+    
+    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
   </head>

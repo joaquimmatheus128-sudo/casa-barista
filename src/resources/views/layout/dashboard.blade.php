@@ -69,7 +69,7 @@
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 2-->
                 <div class="small-box text-bg-success">
-                  <div cla\\\\ss="inner">
+                  <div class="inner">
                     <h3>53<sup class="fs-5">%</sup></h3>
 
                     <p>Bounce Rate</p>

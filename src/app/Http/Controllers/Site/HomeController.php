@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Depoimento;
+use App\Models\Categoria; // Ou o nome exato do seu Model de categoria
 use App\Models\Galeria;
 use App\Models\Produto;
 
@@ -19,7 +20,7 @@ class HomeController extends Controller{
         //dd($listaBanner);
         //var_dump($listaBanner);
 
-        
+        $categoriaMenu = Categoria::all(); // Ajuste a query se tiver filtro, ex: Categoria::where('status', 'ATIVO')->get();
         //$cardapio = Produto::where('status_produto', 'ATIVO')->inRandomOrder()->get();
 
         
@@ -31,7 +32,7 @@ class HomeController extends Controller{
 
         //dd($listaDepo)->toArray();
         
-        return view('site.home.home', compact('listaBanner', 'listaDepo', 'listaGaleria'));
+        return view('site.home.home', compact('listaBanner', 'categoriaMenu', 'listaDepo', 'listaGaleria'));
 
     }
 

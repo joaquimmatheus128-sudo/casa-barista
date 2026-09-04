@@ -294,7 +294,7 @@
                   class="user-image rounded-circle shadow"
                   alt="Alexander Pierce"
                 />
-                <span class="d-none d-md-inline">Alexander Pierce</span>
+                <span class="d-none d-md-inline">Rodrigo john</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::User Image-->
@@ -305,7 +305,7 @@
                     alt="Alexander Pierce"
                   />
                   <p>
-                    Alexander Pierce - Web Developer
+                    Rodrigo john - Web Developer
                     <small>Member since Nov. 2023</small>
                   </p>
                 </li>

@@ -118,4 +118,6 @@
     />
     
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('admin/css/estilo-admin.css') }}" />
   </head>

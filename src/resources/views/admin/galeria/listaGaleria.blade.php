@@ -68,7 +68,7 @@
                             type="button"
                             class="btn btn-sm btn-primary"
                             data-bs-toggle="modal"
-                            data-bs-target="#modal-add-user"
+                            data-bs-target="#modal-add-image"
                           >
                             <i class="bi bi-person-plus-fill me-1" aria-hidden="true"> </i>
                             Inserir nova imagem
@@ -208,19 +208,25 @@
             </div>
             <!--end::Row-->
 
-            <!--begin::Add User Modal-->
+            <!--begin::Adicionar Imagem Modal-->
             <div
               class="modal fade"
-              id="modal-add-user"
+              id="modal-add-image"
               tabindex="-1"
-              aria-labelledby="modal-add-user-label"
+              aria-labelledby="modal-add-image-label"
               aria-hidden="true"
             >
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <form>
+                  <form
+                    action="{{ route('admin.galeria.store') }}"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    @csrf
+
                     <div class="modal-header">
-                      <h5 class="modal-title" id="modal-add-user-label">Add new user</h5>
+                      <h5 class="modal-title" id="modal-add-image-label">Adicionar Imagem</h5>
                       <button
                         type="button"
                         class="btn-close"
@@ -228,98 +234,60 @@
                         aria-label="Close"
                       ></button>
                     </div>
+
                     <div class="modal-body">
                       <div class="mb-3">
-                        <label for="new-user-name" class="form-label"> Full name </label>
+                        <label for="nome_galeria" class="form-label">Nome da imagem</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="new-user-name"
-                          placeholder="e.g. Jane Doe"
+                          id="nome_galeria"
+                          name="nome_galeria"
+                          placeholder="Ex: Ambiente interno"
                           required
                         />
                       </div>
+
                       <div class="mb-3">
-                        <label for="new-user-email" class="form-label"> Email address </label>
+                        <label for="img-galeria" class="form-label">Selecione uma imagem</label>
                         <input
-                          type="email"
+                          type="file"
                           class="form-control"
-                          id="new-user-email"
-                          placeholder="name@example.com"
+                          id="img-galeria"
+                          name="img-galeria"
+                          accept="image/*"
                           required
                         />
-                        <div class="form-text">The invitation will be sent to this address.</div>
+                        <div class="galeria-upload mt-2">
+                          <img
+                            id="ver-galeria"
+                            src="{{ asset('barista/assets/galeria/sem-galeria.svg') }}"
+                            alt="Pré-visualização da galeria"
+                            class="img-fluid rounded"
+                          />
+                        </div>
                       </div>
+
                       <div class="mb-3">
-                        <label for="new-user-role" class="form-label"> Role </label>
-                        <select id="new-user-role" class="form-select">
-                          <option selected>Subscriber</option>
-                          <option>Author</option>
-                          <option>Editor</option>
-                          <option>Administrator</option>
+                        <label for="status_galeria" class="form-label">Status</label>
+                        <select id="status_galeria" name="status_galeria" class="form-select">
+                          <option value="ATIVO" selected>ATIVO</option>
+                          <option value="INATIVO">INATIVO</option>
                         </select>
                       </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="new-user-welcome"
-                          checked
-                        />
-                        <label class="form-check-label" for="new-user-welcome">
-                          Send a welcome email with login details
-                        </label>
-                      </div>
                     </div>
+
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Cancel
+                        Cancelar
                       </button>
-                      <button type="submit" class="btn btn-primary">Create user</button>
+                      <button type="submit" class="btn btn-primary">Salvar imagem</button>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-            <!--end::Add User Modal-->
-
-            <!--begin::Delete User Modal-->
-            <div
-              class="modal fade"
-              id="modal-delete-user"
-              tabindex="-1"
-              aria-labelledby="modal-delete-user-label"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="modal-delete-user-label">Delete user</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <p class="mb-0">
-                      Are you sure you want to delete this user? All content owned by the account
-                      will be reassigned to the site administrator. This action cannot be undone.
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                      Cancel
-                    </button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                      Delete user
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--end::Delete User Modal-->
+            <!--end::Adicionar Imagem Modal-->
           </div>
           <!--end::Container-->
         </div>

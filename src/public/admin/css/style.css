@@ -197,3 +197,19 @@ p, a{
   padding-left: 0;
   list-style: none;
 }
+
+/* form */
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--cor-texto);
+    pointer-events: auto;
+    background-color: var(--cor-fundo-1);
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    box-shadow: var(--bs-modal-box-shadow);
+    outline: 0;
+}

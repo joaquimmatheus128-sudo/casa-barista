@@ -242,4 +242,38 @@
       const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
       sparkline3.render();
     </script>
+
+    <script>
+          const inputBanner = document.getElementById('img-banner');
+          const previewBanner = document.getElementById('ver-banner');
+      
+          inputBanner.addEventListener('change', function() {
+      
+              const arquivo = this.files[0];
+      
+              if (arquivo) {
+      
+                  previewBanner.src = URL.createObjectURL(arquivo);
+      
+              }
+      
+          });
+      </script>
+
+          <script>
+          const inputGaleria = document.getElementById('img-galeria');
+          const previewGaleria = document.getElementById('ver-galeria');
+      
+          inputGaleria.addEventListener('change', function() {
+      
+              const arquivo = this.files[0];
+      
+              if (arquivo) {
+      
+                  previewBanner.src = URL.createObjectURL(arquivo);
+      
+              }
+      
+          });
+      </script>
     <!--end::Script-->

@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
 
 
     // CRUD BANNER
-    Route::get('/dashboard/banner', [BannerController::class, 'banner'])->name('admin.banner.index'); // Listar banners
+Route::get('/dashboard/banner', [BannerController::class, 'index'])->name('admin.banner.index'); // Listar banners
     Route::post('/dashboard/banner', [BannerController::class, 'store'])->name('admin.banner.store'); // Criar banner
     Route::get('/dashboard/banner/{id}/edit', [BannerController::class, 'edit'])->name('admin.banner.edit'); // Abrir o form de editar banner
     Route::put('/dashboard/banner/{id}', [BannerController::class, 'update'])->name('admin.banner.update'); // Atualizar banner
